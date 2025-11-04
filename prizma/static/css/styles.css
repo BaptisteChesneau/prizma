@@ -9,21 +9,19 @@ body {
 }
 
 /* =======================================================
-   01. Header (style comme la maquette)
+   01. Header (style sans bordures)
 ======================================================= */
 
 /* 01.01 Variables */
 :root{
   --hdr-bg: #ffffff;
   --hdr-fg: #0f1720;
-  --hdr-border: #1f2937;         /* bordure sombre */
   --hdr-muted: #6b7280;
 
-  /* boutons nav */
+  /* nav */
   --nav-height: 48px;
   --nav-radius: 12px;
   --nav-gap: 14px;
-  --nav-border-w: 3px;
 
   /* CTA orange */
   --cta-top: #cc6a12;
@@ -35,7 +33,8 @@ body {
 .site-header{
   position: sticky; top: 0; z-index: 50;
   background: var(--hdr-bg);
-  border-bottom: 1px solid #e5e7eb;
+  /* plus de bordure bas noire : légère ombre à la place */
+  box-shadow: 0 1px 0 rgba(0,0,0,.06);
 }
 .hdr-wrap{
   max-width: 1200px;
@@ -45,7 +44,7 @@ body {
   gap: 1rem;
 }
 
-/* 01.03 Branding (logo + texte) */
+/* 01.03 Branding */
 .brand{ display: inline-flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--hdr-fg); }
 .brand-text{ font-weight: 800; font-size: 1.35rem; letter-spacing: .2px; }
 .logo{
@@ -53,37 +52,35 @@ body {
   border-radius: 10px; overflow: hidden;
 }
 
-/* 01.04 Navigation (boutons style “carte”) */
+/* 01.04 Navigation (boutons sans bordure) */
 .site-nav{ display: flex; align-items: center; gap: var(--nav-gap); }
 
-/* par défaut : fond blanc, bordure sombre */
 .nav-link{
   display: inline-flex; align-items: center; justify-content: center;
   min-height: var(--nav-height);
   padding: 0 18px;
-  border: var(--nav-border-w) solid var(--hdr-border);
+  border: none;                         /* ← pas de bordure */
   border-radius: var(--nav-radius);
   background: #fff;
   color: var(--hdr-fg);
   text-decoration: none; font-weight: 500;
-  transition: transform .06s ease, box-shadow .15s ease, background-color .15s ease, opacity .15s ease;
+  transition: transform .06s ease, background-color .15s ease, opacity .15s ease;
 }
-.nav-link:hover{ background: #fafafa; transform: translateY(-1px); }
+.nav-link:hover{ background: #f7f7f7; transform: translateY(-1px); }
 .nav-link:active{ transform: translateY(0); }
-.nav-link.is-active{ outline: 0; box-shadow: 0 0 0 2px rgba(31,41,55,.15) inset; }
+.nav-link.is-active{ background: #f4f4f5; }
 
-/* bouton CTA orange rempli (à droite) */
+/* CTA orange rempli (sans bordure) */
 .nav-link.cta{
   background: linear-gradient(180deg, var(--cta-top), var(--cta-bot));
   color: var(--cta-text);
-  border-color: var(--hdr-border);
 }
 .nav-link.cta:hover{ opacity: .95; transform: translateY(-1px); }
 .nav-link.cta:active{ transform: translateY(0); }
 
 /* 01.05 Burger (mobile) */
 .nav-toggle{ display: none; }
-.nav-btn{ display: none; }
+.nav-btn{ display: none; border: none; background: transparent; }
 .nav-btn-bar{
   display: block; width: 24px; height: 2px; background: var(--hdr-fg);
   box-shadow: 0 6px 0 var(--hdr-fg), 0 12px 0 var(--hdr-fg);
@@ -93,12 +90,13 @@ body {
 @media (max-width: 920px){
   .nav-btn{
     display: inline-flex; align-items: center; justify-content: center;
-    padding: .55rem; border: 1px solid #e5e7eb; border-radius: 10px; background: transparent; cursor: pointer;
+    padding: .55rem; border-radius: 10px; cursor: pointer;
   }
   .site-nav{
     position: absolute; left: 0; right: 0; top: calc(64px + 1px);
     display: none; flex-direction: column; align-items: flex-end;
-    gap: 10px; padding: .75rem 1rem; background: var(--hdr-bg); border-bottom: 1px solid #e5e7eb;
+    gap: 10px; padding: .75rem 1rem; background: var(--hdr-bg);
+    box-shadow: 0 1px 0 rgba(0,0,0,.06);
   }
   .nav-toggle:checked ~ .site-nav{ display: flex; }
   .nav-link{ width: 230px; }
@@ -106,11 +104,11 @@ body {
 
 /* 01.07 Thème sombre (optionnel) */
 [data-theme="dark"]{
-  --hdr-bg: #0f1115; --hdr-fg: #e9e9ea; --hdr-muted: #9aa0a6; --hdr-border: #1f2937;
+  --hdr-bg: #0f1115; --hdr-fg: #e9e9ea; --hdr-muted: #9aa0a6;
 }
 
 /* =======================================================
-   30. Page Hello (scopée avec préfixe .hello-)
+   02. Page Hello (scopée .hello-)
 ======================================================= */
 
 /* 02.01 Variables Hello */
@@ -122,51 +120,28 @@ body {
   --hello-shadow: 0 10px 30px rgba(0,0,0,.06);
   --hello-radius: 16px;
   --hello-space: 2rem;
-  --hello-primary: #cc6a12; /* Rose demandé dans tes projets */
+  --hello-primary: #cc6a12;  /* orange */
   --hello-focus: 2px solid #111111;
 }
 
-/* 02.02 Base Hello (scopée – pas d'impact global) */
+/* 02.02 Base Hello */
 .hello-container, .hello-card, .hello-muted, .hello-message, .hello-btn { box-sizing: border-box; }
-/* Pas de background sur <body> pour ne pas affecter l’en-tête */
 .hello-container { background: var(--hello-bg); }
 
 /* 02.03 Layout */
-.hello-container {
-  max-width: 720px;
-  margin: 10vh auto;
-  padding: var(--hello-space);
-}
-.hello-card {
-  background: var(--hello-card);
-  border-radius: var(--hello-radius);
-  box-shadow: var(--hello-shadow);
-  padding: var(--hello-space);
-}
+.hello-container { max-width: 720px; margin: 10vh auto; padding: var(--hello-space); }
+.hello-card { background: var(--hello-card); border-radius: var(--hello-radius); box-shadow: var(--hello-shadow); padding: var(--hello-space); }
 
-/* 02.04 Typographie */
-.hello-card h1,
-#hello-title {
-  margin: 0 0 1rem;
-  font-size: 2.25rem;
-  line-height: 1.2;
-}
-.hello-muted {
-  color: var(--hello-muted);
-  margin: .25rem 0 1rem;
-}
+/* 02.04 Typo */
+.hello-card h1, #hello-title { margin: 0 0 1rem; font-size: 2.25rem; line-height: 1.2; }
+.hello-muted { color: var(--hello-muted); margin: .25rem 0 1rem; }
 .hello-message { margin: .25rem 0; }
 
 /* 02.05 Bouton */
-.hello-btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: .65rem 1rem;
-  border-radius: 999px;
-  text-decoration: none;
-  background: var(--hello-primary);
-  color: #fff;
-  font-weight: 600;
+.hello-btn{
+  display: inline-block; margin-top: 1rem; padding: .65rem 1rem;
+  border-radius: 999px; text-decoration: none;
+  background: var(--hello-primary); color: #fff; font-weight: 600;
   transition: transform .08s ease, opacity .2s ease;
 }
 .hello-btn:hover { opacity: .92; transform: translateY(-1px); }
@@ -177,30 +152,27 @@ body {
 .u-center { text-align: center; }
 .u-hide { display: none !important; }
 
-/* 02.07 Accessibilité & Préférences */
-@media (prefers-reduced-motion: reduce) {
-  .hello-btn { transition: none; }
-}
+/* 02.07 Accessibilité */
+@media (prefers-reduced-motion: reduce) { .hello-btn { transition: none; } }
 
 /* 02.08 Responsive */
-@media (max-width: 640px) {
+@media (max-width: 640px){
   .hello-container { margin: 4vh auto; padding: 1rem; }
   .hello-card { padding: 1.25rem; }
   .hello-card h1, #hello-title { font-size: 1.8rem; }
 }
 
 /* =======================================================
-   03. Footer (selon la maquette)
+   03. Footer (sans bordure supérieure)
 ======================================================= */
 
 /* 03.01 Variables */
 :root{
   --ftr-bg: #ffffff;
   --ftr-fg: #0f1720;
-  --ftr-border: #1f2937;     /* ligne du haut */
   --ftr-muted: #374151;
 
-  --ftr-icon-size: 40px;     /* taille icônes réseaux */
+  --ftr-icon-size: 40px;
   --ftr-gap: 18px;
   --ftr-vgap: 22px;
 }
@@ -209,77 +181,44 @@ body {
 .site-footer{
   background: var(--ftr-bg);
   color: var(--ftr-fg);
-  border-top: 3px solid var(--ftr-border); /* ligne supérieure comme la capture */
+  /* plus de trait noir : petite ombre subtile */
+  box-shadow: 0 -1px 0 rgba(0,0,0,.06);
 }
 .ftr-wrap{
   max-width: 1200px;
   margin: 0 auto;
   padding: 18px 16px 28px;
   display: grid;
-  grid-template-columns: auto 1fr auto; /* social | centre | légal */
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   column-gap: 32px;
 }
 
-/* 03.03 Réseaux sociaux (gauche, vertical) */
-.ftr-social{
-  display: flex;
-  flex-direction: column;
-  gap: var(--ftr-gap);
-}
-.ftr-icon{
-  width: var(--ftr-icon-size);
-  height: var(--ftr-icon-size);
-  display: block;
-}
+/* 03.03 Réseaux sociaux */
+.ftr-social{ display: flex; flex-direction: column; gap: var(--ftr-gap); }
+.ftr-icon{ width: var(--ftr-icon-size); height: var(--ftr-icon-size); display: block; }
 .ftr-social-link{ display: inline-block; line-height: 0; }
 
-/* 03.04 Bloc info (centre, lignes espacées) */
-.ftr-info{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--ftr-vgap);
-  text-align: center;
-}
+/* 03.04 Infos centre */
+.ftr-info{ display: flex; flex-direction: column; align-items: center; gap: var(--ftr-vgap); text-align: center; }
 .ftr-line{ margin: 0; }
-.ftr-link{
-  color: inherit;
-  text-decoration: none;
-}
+.ftr-link{ color: inherit; text-decoration: none; }
 .ftr-link:hover{ text-decoration: underline; }
 
-/* 03.05 Liens légaux (droite, vertical) */
-.ftr-legal{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 28px;
-}
-.ftr-legal-link{
-  color: inherit;
-  text-decoration: none;
-}
+/* 03.05 Liens légaux */
+.ftr-legal{ display: flex; flex-direction: column; align-items: flex-end; gap: 28px; }
+.ftr-legal-link{ color: inherit; text-decoration: none; }
 .ftr-legal-link:hover{ text-decoration: underline; }
 
 /* 03.06 Responsive */
 @media (max-width: 900px){
-  .ftr-wrap{
-    grid-template-columns: 1fr;      /* tout en colonne */
-    row-gap: 18px;
-    text-align: center;
-  }
-  .ftr-social{
-    flex-direction: row;              /* icônes en ligne */
-    justify-content: center;
-  }
-  .ftr-legal{
-    align-items: center;              /* liens légaux centrés */
-  }
+  .ftr-wrap{ grid-template-columns: 1fr; row-gap: 18px; text-align: center; }
+  .ftr-social{ flex-direction: row; justify-content: center; }
+  .ftr-legal{ align-items: center; }
 }
 
 /* =======================================================
-   04. Home (page d'accueil) — sans bordures noires
+   04. Home (page d'accueil) — sans bordures
 ======================================================= */
 
 /* 04.01 Variables */
@@ -298,18 +237,17 @@ body {
   --home-cta-bot: #a5530c;
   --home-cta-text: #ffffff;
 
-  /* Couleurs douces */
-  --home-ring: rgba(0,0,0,.08);
+  /* Effets doux */
   --home-shadow: 0 8px 24px rgba(0,0,0,.06);
 }
 
-/* 04.02 Cartes (plus de bordure noire) */
+/* 04.02 Cartes */
 .card{
   background: #fff;
-  border: none;                        /* ← supprime la bordure */
+  border: none;                         /* ← pas de bordure */
   border-radius: var(--home-radius);
   padding: var(--home-card-pad);
-  box-shadow: var(--home-shadow);      /* douceur à la place */
+  box-shadow: var(--home-shadow);
 }
 
 /* 04.03 Layout général */
@@ -323,14 +261,12 @@ body {
 
 .btn{
   display: inline-flex; align-items: center; justify-content: center;
-  min-height: var(--home-btn-h);
-  padding: 0 var(--home-btn-pad-x);
+  min-height: var(--home-btn-h); padding: 0 var(--home-btn-pad-x);
   border-radius: var(--home-btn-radius);
-  text-decoration: none;
-  font-weight: 600;
-  border: none;                        /* ← supprime la bordure des boutons */
+  text-decoration: none; font-weight: 600;
+  border: none;                          /* ← pas de bordure */
 }
-.btn-outline{ background: #fff; box-shadow: 0 0 0 1px var(--home-ring) inset; }
+.btn-outline{ background: #fff; }
 .btn-outline:hover{ background: #f7f7f7; }
 .btn-orange{
   color: var(--home-cta-text);
@@ -338,27 +274,23 @@ body {
 }
 .btn-orange:hover{ opacity: .95; }
 
-/* Bloc images à droite du hero */
+/* Images hero droite */
 .home-hero-right .home-hero-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .home-hero-img{ width: 100%; height: 120px; object-fit: cover; border-radius: 10px; display: block; }
 
-/* 04.05 Produits populaires (sans bordures noires) */
+/* 04.05 Produits populaires */
 .home-products{ display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--home-gap); margin-bottom: 28px; }
 .prod-card{ padding: 0; }
 .prod-thumb{
   width: 100%; height: 160px; object-fit: cover; display: block;
   border-radius: var(--home-radius) var(--home-radius) 0 0;
-  /* plus de trait noir entre image et carte */
 }
 .prod-body{ padding: 12px; display: grid; gap: 10px; }
 
-/* étiquettes (pills) sans bordure noire */
+/* Etiquettes sans bordure */
 .pill{
-  border: none;                        /* ← supprime la bordure */
-  border-radius: 10px;
-  padding: 8px 12px;
-  background: #fff;
-  box-shadow: 0 0 0 1px var(--home-ring) inset; /* liseré discret (peut être retiré) */
+  border: none; border-radius: 10px;
+  padding: 8px 12px; background: #fff;
 }
 
 /* 04.06 Avis client */
@@ -373,6 +305,4 @@ body {
 
 /* 04.08 Responsive */
 @media (max-width: 1000px){ .home-hero{ grid-template-columns: 1fr; } }
-@media (max-width: 900px){
-  .home-products, .home-reviews{ grid-template-columns: 1fr; }
-}
+@media (max-width: 900px){ .home-products, .home-reviews{ grid-template-columns: 1fr; } }
