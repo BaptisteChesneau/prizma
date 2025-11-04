@@ -421,3 +421,73 @@ body {
   .prod-layout{ grid-template-columns: 1fr; }
   .prod-aside{ position: static; }
 }
+
+/* =======================================================
+   06. Animations (Produits)
+======================================================= */
+
+/* 06.01 Préférences utilisateur */
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal.is-visible,
+  .prod-section, .prod-nav-link, .pill, .guide, .guide > summary {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* 06.02 Révélation au scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+/* 06.03 Micro-interactions */
+.subcats .pill{
+  transition: transform .12s ease, box-shadow .15s ease, background-color .2s ease;
+}
+.subcats .pill:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 2px 0 rgba(0,0,0,.12);
+}
+
+.prod-section{
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.prod-section:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+.prod-nav-link{
+  transition: background-color .2s ease, transform .08s ease, border-color .15s ease;
+}
+.prod-nav-link:hover{ transform: translateX(2px); }
+.prod-nav-link.is-active{
+  background: #fafafa;
+  border-color: var(--prod-border, #111);
+  border: 1px solid var(--prod-border, #111);
+  border-radius: 8px;
+}
+
+/* 06.04 Guides <details> */
+.guide{ transition: box-shadow .2s ease; }
+.guide[open]{ box-shadow: 0 6px 18px rgba(0,0,0,.06); }
+.guide > summary{ transition: background-color .2s ease; }
+.guide[open] > summary{ background: #fafafa; }
+.guide[open] .guide-list{
+  animation: fadeSlide .28s ease both;
+}
+@keyframes fadeSlide{
+  from{ opacity: 0; transform: translateY(-6px); }
+  to  { opacity: 1; transform: none; }
+}
+
+/* 06.05 Confort de navigation */
+html { scroll-behavior: smooth; }
