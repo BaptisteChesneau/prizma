@@ -23,7 +23,7 @@ body {
   --nav-height: 48px;
   --nav-radius: 12px;
   --nav-gap: 14px;
-  --nav-border-w: 1px;           /* << fin */
+  --nav-border-w: 1px;           /* fin */
 
   /* CTA orange */
   --cta-top: #cc6a12;
@@ -70,7 +70,7 @@ body {
 .nav-link:active{ transform: translateY(0); }
 .nav-link.is-active{ outline: 0; box-shadow: 0 0 0 1px rgba(0,0,0,.1) inset; }
 
-/* CTA orange rempli (bordure fine aussi) */
+/* CTA orange rempli (bordure fine) */
 .nav-link.cta{
   background: linear-gradient(180deg, var(--cta-top), var(--cta-bot));
   color: var(--cta-text);
@@ -219,7 +219,7 @@ body {
 }
 
 /* =======================================================
-   04. Home (bordures fines)
+   04. Home (bordures fines + correctif hero)
 ======================================================= */
 
 /* 04.01 Variables */
@@ -254,10 +254,29 @@ body {
 .home-section-title{ margin: 26px 0 12px; font-size: 1rem; font-weight: 600; color: #333; }
 
 /* 04.04 Hero */
-.home-hero{ display: grid; grid-template-columns: 1fr 1fr; gap: var(--home-gap); margin-bottom: 28px; }
-.home-hero-text{ margin: 0; text-align: center; }
-.home-hero-cta{ margin-top: 14px; display: flex; gap: 12px; justify-content: center; }
-
+.home-hero{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--home-gap);
+  margin-bottom: 28px;
+  align-items: stretch;                 /* mêmes hauteurs */
+}
+.home-hero-left.card,
+.home-hero-right.card{
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;                     /* rien ne déborde du cadre */
+}
+.home-hero-text{
+  margin: 0 0 8px;                      /* pas de marge qui “pousse” le bas */
+  text-align: center;
+}
+.home-hero-cta{
+  margin-top: 16px;
+  margin-bottom: 0;                     /* évite le débordement bas */
+  padding-bottom: 6px;                  /* petit coussin intérieur */
+  display: flex; gap: 12px; justify-content: center;
+}
 .btn{
   display: inline-flex; align-items: center; justify-content: center;
   min-height: var(--home-btn-h);
@@ -267,13 +286,14 @@ body {
   font-weight: 600;
   border: 1px solid var(--home-btn-border);    /* fin */
   color: #111;
+  margin: 0;                                   /* important pour éviter tout débordement */
 }
 .btn-outline{ background: #fff; }
 .btn-outline:hover{ background: #f7f7f7; }
 .btn-orange{
   color: var(--home-cta-text);
   background: linear-gradient(180deg, var(--home-cta-top), var(--home-cta-bot));
-  border-color: var(--home-btn-border);        /* fin */
+  border-color: var(--home-btn-border);
 }
 .btn-orange:hover{ opacity: .95; }
 
@@ -293,7 +313,7 @@ body {
 
 /* Etiquettes (pills) — bordure fine */
 .pill{
-  border: 1px solid var(--home-border);        /* fin */
+  border: 1px solid var(--home-border);
   border-radius: 10px;
   padding: 8px 12px;
   background: #fff;

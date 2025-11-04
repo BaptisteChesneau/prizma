@@ -11,33 +11,45 @@
 
     <main class="home">
       <!-- HERO -->
-      <section class="home-hero">
+      <section id="hero" class="home-hero" role="region" aria-labelledby="hero-title">
         <div class="home-hero-left card">
-          <p class="home-hero-text">
+          <p id="hero-title" class="home-hero-text">
             Tout pour la maison & le high-tech simplement.<br>
             <strong>Prizma sélectionne des essentiels fiables et accessibles.</strong><br>
             <strong>Un catalogue clair, des filtres utiles et un support qui répond vite</strong>
           </p>
           <div class="home-hero-cta">
-            <a href="/produits" class="btn btn-orange">Voir les produits</a>
-            <a href="/contact" class="btn btn-outline">Nous contacter</a>
+            <a href="{{ url_for('produits') }}" class="btn btn-orange">Voir les produits</a>
+            <a href="{{ url_for('contact') }}" class="btn btn-outline">Nous contacter</a>
           </div>
         </div>
 
         <div class="home-hero-right card">
           <div class="home-hero-grid">
-            <img src="{{ url_for('static', filename='img/hero-maison.jpg') }}" alt="Maison illuminée" class="home-hero-img">
-            <img src="{{ url_for('static', filename='img/hero-smartphone.jpg') }}" alt="Smartphone" class="home-hero-img">
-            <img src="{{ url_for('static', filename='img/hero-cafe.jpg') }}" alt="Café en grains" class="home-hero-img">
+            <img
+              src="{{ url_for('static', filename='img/hero-maison.jpg') }}"
+              alt="Maison illuminée"
+              class="home-hero-img"
+              loading="lazy" decoding="async">
+            <img
+              src="{{ url_for('static', filename='img/hero-smartphone.jpg') }}"
+              alt="Smartphone"
+              class="home-hero-img"
+              loading="lazy" decoding="async">
+            <img
+              src="{{ url_for('static', filename='img/hero-cafe.jpg') }}"
+              alt="Café en grains"
+              class="home-hero-img"
+              loading="lazy" decoding="async">
           </div>
         </div>
       </section>
 
       <!-- PRODUITS POPULAIRES -->
-      <h2 class="home-section-title">Les produits les plus visités</h2>
-      <section class="home-products">
+      <h2 id="popular-title" class="home-section-title">Les produits les plus visités</h2>
+      <section class="home-products" role="region" aria-labelledby="popular-title">
         <article class="prod-card card">
-          <img src="{{ url_for('static', filename='img/prod-guirlande.jpg') }}" alt="Guirlande LED 5m" class="prod-thumb">
+          <img src="{{ url_for('static', filename='img/prod-guirlande.jpg') }}" alt="Guirlande LED 5m" class="prod-thumb" loading="lazy" decoding="async">
           <div class="prod-body">
             <div class="pill">Guirlande Led 5m</div>
             <div class="pill">Maison</div>
@@ -46,7 +58,7 @@
         </article>
 
         <article class="prod-card card">
-          <img src="{{ url_for('static', filename='img/prod-smartphone.jpg') }}" alt="Smartphone 5G 128 Go" class="prod-thumb">
+          <img src="{{ url_for('static', filename='img/prod-smartphone.jpg') }}" alt="Smartphone 5G 128 Go" class="prod-thumb" loading="lazy" decoding="async">
           <div class="prod-body">
             <div class="pill">Smartphone 5G 128 Go</div>
             <div class="pill">Téléphonie</div>
@@ -55,7 +67,7 @@
         </article>
 
         <article class="prod-card card">
-          <img src="{{ url_for('static', filename='img/prod-chaise.jpg') }}" alt="Chaise de bureau ergonomique" class="prod-thumb">
+          <img src="{{ url_for('static', filename='img/prod-chaise.jpg') }}" alt="Chaise de bureau ergonomique" class="prod-thumb" loading="lazy" decoding="async">
           <div class="prod-body">
             <div class="pill">Chaise de bureau ergonomique</div>
             <div class="pill">Bureau</div>
@@ -65,25 +77,25 @@
       </section>
 
       <!-- AVIS CLIENT -->
-      <h2 class="home-section-title">Avis client</h2>
-      <section class="home-reviews">
+      <h2 id="reviews-title" class="home-section-title">Avis client</h2>
+      <section class="home-reviews" role="region" aria-labelledby="reviews-title">
         <article class="review-card card">
-          <div class="stars">★★★★★</div>
+          <div class="stars" aria-label="5 étoiles">★★★★★</div>
           <div class="quote pill">Léa – “Livraison rapide et service réactif”</div>
         </article>
         <article class="review-card card">
-          <div class="stars">★★★★☆</div>
+          <div class="stars" aria-label="4 étoiles">★★★★☆</div>
           <div class="quote pill">Karim – “Bon rapport qualité/prix”</div>
         </article>
         <article class="review-card card">
-          <div class="stars">★★★★★</div>
+          <div class="stars" aria-label="5 étoiles">★★★★★</div>
           <div class="quote pill">Anaïs – “J’aime le choix varié et la qualité des produits”</div>
         </article>
       </section>
 
       <!-- CONTACT -->
-      <h2 class="home-section-title">Nous contacter</h2>
-      <p class="home-contact">
+      <h2 id="contact-title" class="home-section-title">Nous contacter</h2>
+      <p class="home-contact" role="region" aria-labelledby="contact-title">
         Une question ? Écrivez-nous :
         <a href="mailto:contact.Prizma@gmail.com">contact.Prizma@gmail.com</a>
       </p>
