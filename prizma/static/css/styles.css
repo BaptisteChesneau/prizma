@@ -261,22 +261,32 @@ body {
   margin-bottom: 28px;
   align-items: stretch;                 /* mêmes hauteurs */
 }
+
+/* cartes du hero en flex pour maîtriser le flux */
 .home-hero-left.card,
 .home-hero-right.card{
   display: flex;
   flex-direction: column;
   overflow: hidden;                     /* rien ne déborde du cadre */
 }
+
+/* ⚠️ Bordure autour du TEXTE seulement (pas autour de la carte entière) */
+.home-hero-left.card{ border: none; }   /* pas de cadre global à gauche */
 .home-hero-text{
-  margin: 0 0 8px;                      /* pas de marge qui “pousse” le bas */
+  display: block;
+  margin: 0 0 8px;
+  padding: 16px 18px;
+  border: 1px solid var(--home-border); /* bordure fine autour du texte */
+  border-radius: var(--home-radius);
+  background: #fff;
   text-align: center;
 }
-.home-hero-cta{
-  margin-top: 16px;
-  margin-bottom: 0;                     /* évite le débordement bas */
-  padding-bottom: 6px;                  /* petit coussin intérieur */
-  display: flex; gap: 12px; justify-content: center;
-}
+
+/* Boutons du hero SANS bordure (les autres boutons conservent 1px) */
+.home-hero .home-hero-cta{ margin-top: 16px; padding-bottom: 6px; display: flex; gap: 12px; justify-content: center; }
+.home-hero .btn{ border: none; margin: 0; }    /* override local */
+
+/* Boutons (règle générale, hors hero) */
 .btn{
   display: inline-flex; align-items: center; justify-content: center;
   min-height: var(--home-btn-h);
@@ -284,9 +294,8 @@ body {
   border-radius: var(--home-btn-radius);
   text-decoration: none;
   font-weight: 600;
-  border: 1px solid var(--home-btn-border);    /* fin */
+  border: 1px solid var(--home-btn-border);
   color: #111;
-  margin: 0;                                   /* important pour éviter tout débordement */
 }
 .btn-outline{ background: #fff; }
 .btn-outline:hover{ background: #f7f7f7; }
