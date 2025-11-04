@@ -491,3 +491,23 @@ body {
 
 /* 06.05 Confort de navigation */
 html { scroll-behavior: smooth; }
+
+/* =======================================================
+   07.b Nav Produits — état actif aux couleurs de la charte
+======================================================= */
+
+.prod-nav-link.is-active{
+  background: linear-gradient(180deg, var(--cta-top), var(--cta-bot));
+  color: var(--cta-text);
+  border: 1px solid var(--hdr-border);
+  border-radius: 8px;
+  box-shadow: 0 2px 0 rgba(0,0,0,.12);
+  transform: none; /* pas de décalage à l'état actif */
+}
+.prod-nav-link.is-active:hover{
+  opacity: .95;
+}
+.prod-nav-link.is-active:focus-visible{
+  outline: 2px solid var(--hdr-border);
+  outline-offset: 2px;
+}
