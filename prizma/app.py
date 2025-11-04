@@ -106,7 +106,13 @@ def login_post():
         errors.append("Le code postal doit contenir 5 chiffres.")
 
     if errors:
-        return render_template("login.html", errors=errors, form={"email": email, "code_postal": code_postal}, me=None, success=False)
+        return render_template(
+            "login.html",
+            errors=errors,
+            form={"email": email, "code_postal": code_postal},
+            me=None,
+            success=False
+        )
 
     # Recherche d'un utilisateur correspondant (e-mail + code postal)
     me = next((u for u in USERS if u.get("email") == email and u.get("code_postal") == code_postal), None)
@@ -119,13 +125,15 @@ def login_post():
             success=False
         )
 
-    # OK : on "connecte" l'utilisateur en session
+    # OK : on "connecte" l'utilisateur en session (session complète pour /compte)
     session["user"] = {
         "prenom": me.get("prenom"),
         "nom": me.get("nom"),
         "email": me.get("email"),
+        "adresse": me.get("adresse"),
         "code_postal": me.get("code_postal"),
         "ville": me.get("ville"),
+        "telephone": me.get("telephone"),
     }
     return render_template("login.html", errors=[], form={}, me=session["user"], success=True)
 
@@ -134,6 +142,64 @@ def login_post():
 def logout():
     session.pop("user", None)
     return redirect(url_for("login"))
+
+
+# -------- Espace client (/compte) --------
+def _current_user():
+    return session.get("user")
+
+def _update_user_store(email, data):
+    """Met à jour l'utilisateur correspondant dans USERS (en mémoire)."""
+    for u in USERS:
+        if u.get("email") == email:
+            u.update(data)
+            return True
+    return False
+
+@app.get("/compte")
+def compte():
+    me = _current_user()
+    if not me:
+        return redirect(url_for("login"))
+    # success=None au premier affichage
+    return render_template("account.html", me=me, errors=[], success=None)
+
+@app.post("/compte/update")
+def compte_update():
+    me = _current_user()
+    if not me:
+        return redirect(url_for("login"))
+
+    # On ne permet pas de changer l'email pour l’instant
+    updated = {
+        "prenom": request.form.get("prenom", "").strip(),
+        "nom": request.form.get("nom", "").strip(),
+        "adresse": request.form.get("adresse", "").strip(),
+        "code_postal": request.form.get("code_postal", "").strip(),
+        "ville": request.form.get("ville", "").strip(),
+        "telephone": request.form.get("telephone", "").strip(),
+    }
+
+    errors = []
+    if not updated["prenom"]: errors.append("Le prénom est requis.")
+    if not updated["nom"]: errors.append("Le nom est requis.")
+    if not updated["adresse"]: errors.append("L’adresse postale est requise.")
+    if not (updated["code_postal"].isdigit() and len(updated["code_postal"]) == 5):
+        errors.append("Le code postal doit contenir 5 chiffres.")
+    if not updated["ville"]: errors.append("La ville est requise.")
+    if not updated["telephone"]:
+        errors.append("Le numéro de téléphone est requis.")
+
+    if errors:
+        # Renvoyer le template avec les champs saisis et les erreurs
+        me_view = {**me, **updated}
+        return render_template("account.html", me=me_view, errors=errors, success=False)
+
+    # Met à jour USERS (en mémoire) puis la session
+    _update_user_store(me["email"], updated)
+    session["user"] = {**session["user"], **updated}
+
+    return render_template("account.html", me=session["user"], errors=[], success=True)
 
 
 # -------- Stubs de navigation --------

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mon compte — Prizma</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <main class="account">
+      <section class="account-wrap card">
+        <h1 class="account-title">Mon compte</h1>
+        <p class="account-sub">Gère tes informations personnelles.</p>
+
+        {% if errors and errors|length %}
+          <div class="alert alert-error" role="alert" aria-live="polite">
+            <strong>Veuillez corriger les erreurs suivantes :</strong>
+            <ul>
+              {% for e in errors %}<li>{{ e }}</li>{% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        {% if success is true %}
+          <div class="alert alert-success" role="status" aria-live="polite">
+            ✅ Informations mises à jour.
+          </div>
+        {% elif success is sameas(false) %}
+          <div class="alert alert-error" role="alert" aria-live="polite">
+            ❌ La mise à jour a échoué. Vérifie les champs ci-dessus.
+          </div>
+        {% endif %}
+
+        <form class="account-form" method="post" action="{{ url_for('compte_update') }}" novalidate>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="prenom">Prénom</label>
+              <input id="prenom" name="prenom" type="text" required value="{{ me.prenom }}">
+            </div>
+
+            <div class="form-field">
+              <label for="nom">Nom</label>
+              <input id="nom" name="nom" type="text" required value="{{ me.nom }}">
+            </div>
+
+            <div class="form-field full">
+              <label for="email">Adresse e-mail</label>
+              <input id="email" name="email" type="email" value="{{ me.email }}" disabled>
+              <small class="hint">L’e-mail sert d’identifiant et ne peut pas être modifié pour l’instant.</small>
+            </div>
+
+            <div class="form-field full">
+              <label for="adresse">Adresse</label>
+              <input id="adresse" name="adresse" type="text" required value="{{ me.adresse }}">
+            </div>
+
+            <div class="form-field">
+              <label for="code_postal">Code postal</label>
+              <input id="code_postal" name="code_postal" type="text" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" required value="{{ me.code_postal }}">
+            </div>
+
+            <div class="form-field">
+              <label for="ville">Ville</label>
+              <input id="ville" name="ville" type="text" required value="{{ me.ville }}">
+            </div>
+
+            <div class="form-field full">
+              <label for="telephone">Téléphone</label>
+              <input id="telephone" name="telephone" type="tel" required value="{{ me.telephone }}">
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-orange">Enregistrer</button>
+            <a class="btn btn-outline" href="{{ url_for('logout') }}">Se déconnecter</a>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    {% include 'footer.html' %}
+  </body>
+</html>

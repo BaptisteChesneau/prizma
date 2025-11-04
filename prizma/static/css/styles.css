@@ -817,3 +817,97 @@ html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce){
   .auth.auth-login .form-field input{ transition: none; }
 }
+
+/* =======================================================
+   11. Account (Espace client)
+======================================================= */
+
+/* 11.01 Variables */
+:root{
+  --account-maxw: 820px;
+  --account-border: var(--auth-border, #111111);
+  --account-radius: var(--auth-radius, 12px);
+  --account-gap: var(--auth-gap, 16px);
+}
+
+/* 11.02 Conteneur et carte */
+.account{
+  max-width: var(--account-maxw);
+  margin: 28px auto 64px;
+  padding: 0 16px;
+}
+.account-wrap.card{
+  border: 1px solid var(--account-border);
+  border-radius: var(--account-radius);
+  padding: 20px;
+  background: #fff;
+}
+
+/* 11.03 Titres */
+.account-title{ margin: 0 0 6px; font-size: 1.5rem; line-height: 1.2; }
+.account-sub{ margin: 0 0 16px; color: #666; }
+
+.account .hint{ color: #888; font-size: .9rem; }
+
+/* 11.04 Formulaire (réutilise la grille de la section 07) */
+.account-form{ margin-top: 6px; }
+.account .form-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--account-gap);
+}
+.account .form-grid .full{ grid-column: 1 / -1; }
+
+.account .form-field{ display: grid; gap: 6px; }
+.account .form-field label{ font-weight: 600; }
+.account .form-field input{
+  width: 100%;
+  border: 1px solid var(--account-border);
+  border-radius: var(--account-radius);
+  padding: 10px 12px;
+  background: #fff;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.account .form-field input:focus-visible{
+  outline: 2px solid var(--account-border);
+  outline-offset: 2px;
+}
+.account .form-field input:disabled{
+  background: #f7f7f7;
+  color: #555;
+}
+
+/* 11.05 Actions */
+.account .form-actions{
+  margin-top: 10px;
+  display: flex;
+  gap: 12px;
+}
+.account .form-actions .btn{
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid var(--account-border);
+  border-radius: 10px;
+  font-weight: 600;
+}
+.account .form-actions .btn.btn-orange{
+  color: var(--auth-cta-text, #fff);
+  background: linear-gradient(180deg, var(--auth-cta-top, #cc6a12), var(--auth-cta-bot, #a5530c));
+}
+
+/* 11.06 Alertes (reprend la base) */
+.account .alert{
+  border: 1px solid var(--account-border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin: 0 0 14px;
+  background: #fff;
+}
+.account .alert-success{ border-color: #198754; }
+.account .alert-error{ border-color: #b91c1c; }
+.account .alert-error ul{ margin: 8px 0 0 18px; }
+
+/* 11.07 Responsive */
+@media (max-width: 720px){
+  .account .form-grid{ grid-template-columns: 1fr; }
+}
