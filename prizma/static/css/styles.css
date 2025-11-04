@@ -511,3 +511,53 @@ html { scroll-behavior: smooth; }
   outline: 2px solid var(--hdr-border);
   outline-offset: 2px;
 }
+
+/* =======================================================
+   08.c Guides (accordéon déroulant)
+======================================================= */
+.guide{
+  border: 1px solid var(--prod-border, #111);
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+}
+.guide + .guide{ margin-top: 12px; }
+
+/* Titre */
+.guide > summary{
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  font-weight: 600;
+  position: relative;
+  user-select: none;
+  outline: none;
+}
+.guide > summary::-webkit-details-marker{ display: none; }
+
+/* Chevron */
+.guide > summary::after{
+  content:"";
+  position:absolute; right:16px; top:50%;
+  width:10px; height:10px;
+  border-right:2px solid var(--prod-border, #111);
+  border-bottom:2px solid var(--prod-border, #111);
+  transform: translateY(-50%) rotate(-45deg);
+  transition: transform .2s ease;
+}
+.guide[open] > summary::after{ transform: translateY(-50%) rotate(45deg); }
+
+/* Panneau déroulant avec animation */
+.guide-panel{
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .28s ease, opacity .28s ease;
+  opacity: 0;
+}
+.guide[open] .guide-panel{
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.guide-panel > *{ min-height: 0; }
+
+.guide-list{ margin: 12px 16px; padding-left: 18px; }
