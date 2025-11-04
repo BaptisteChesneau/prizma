@@ -92,7 +92,10 @@ def auth_legacy_post():
 @app.get("/login")
 def login():
     me = session.get("user")
-    return render_template("login.html", errors=[], form={}, me=me, success=False)
+    if me:
+        # déjà connecté → espace client
+        return redirect(url_for("compte"))
+    return render_template("login.html", errors=[], form={}, me=None, success=False)
 
 @app.post("/login")
 def login_post():
@@ -135,7 +138,8 @@ def login_post():
         "ville": me.get("ville"),
         "telephone": me.get("telephone"),
     }
-    return render_template("login.html", errors=[], form={}, me=session["user"], success=True)
+    # redirection immédiate vers l'espace client
+    return redirect(url_for("compte"))
 
 
 @app.get("/logout")
