@@ -1,6 +1,119 @@
-/* -------------------------------------------------------
-   01. Variables & Reset
--------------------------------------------------------- */
+/* =======================================================
+   00. Reset & Base
+======================================================= */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.6;
+}
+
+/* =======================================================
+   01. Header (style comme la maquette)
+======================================================= */
+
+/* 01.01 Variables */
+:root{
+  --hdr-bg: #ffffff;
+  --hdr-fg: #0f1720;
+  --hdr-border: #1f2937;         /* bordure sombre */
+  --hdr-muted: #6b7280;
+
+  /* boutons nav */
+  --nav-height: 48px;
+  --nav-radius: 12px;
+  --nav-gap: 14px;
+  --nav-border-w: 3px;
+
+  /* CTA orange */
+  --cta-top: #cc6a12;
+  --cta-bot: #a5530c;
+  --cta-text: #ffffff;
+}
+
+/* 01.02 Structure */
+.site-header{
+  position: sticky; top: 0; z-index: 50;
+  background: var(--hdr-bg);
+  border-bottom: 1px solid #e5e7eb;
+}
+.hdr-wrap{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: .75rem 1rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem;
+}
+
+/* 01.03 Branding (logo + texte) */
+.brand{ display: inline-flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--hdr-fg); }
+.brand-text{ font-weight: 800; font-size: 1.35rem; letter-spacing: .2px; }
+.logo{
+  width: 44px; height: 44px; display: inline-grid; place-items: center;
+  border-radius: 10px; overflow: hidden;
+}
+
+/* 01.04 Navigation (boutons style “carte”) */
+.site-nav{ display: flex; align-items: center; gap: var(--nav-gap); }
+
+/* par défaut : fond blanc, bordure sombre */
+.nav-link{
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--nav-height);
+  padding: 0 18px;
+  border: var(--nav-border-w) solid var(--hdr-border);
+  border-radius: var(--nav-radius);
+  background: #fff;
+  color: var(--hdr-fg);
+  text-decoration: none; font-weight: 500;
+  transition: transform .06s ease, box-shadow .15s ease, background-color .15s ease, opacity .15s ease;
+}
+.nav-link:hover{ background: #fafafa; transform: translateY(-1px); }
+.nav-link:active{ transform: translateY(0); }
+.nav-link.is-active{ outline: 0; box-shadow: 0 0 0 2px rgba(31,41,55,.15) inset; }
+
+/* bouton CTA orange rempli (à droite) */
+.nav-link.cta{
+  background: linear-gradient(180deg, var(--cta-top), var(--cta-bot));
+  color: var(--cta-text);
+  border-color: var(--hdr-border);
+}
+.nav-link.cta:hover{ opacity: .95; transform: translateY(-1px); }
+.nav-link.cta:active{ transform: translateY(0); }
+
+/* 01.05 Burger (mobile) */
+.nav-toggle{ display: none; }
+.nav-btn{ display: none; }
+.nav-btn-bar{
+  display: block; width: 24px; height: 2px; background: var(--hdr-fg);
+  box-shadow: 0 6px 0 var(--hdr-fg), 0 12px 0 var(--hdr-fg);
+}
+
+/* 01.06 Responsive */
+@media (max-width: 920px){
+  .nav-btn{
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: .55rem; border: 1px solid #e5e7eb; border-radius: 10px; background: transparent; cursor: pointer;
+  }
+  .site-nav{
+    position: absolute; left: 0; right: 0; top: calc(64px + 1px);
+    display: none; flex-direction: column; align-items: flex-end;
+    gap: 10px; padding: .75rem 1rem; background: var(--hdr-bg); border-bottom: 1px solid #e5e7eb;
+  }
+  .nav-toggle:checked ~ .site-nav{ display: flex; }
+  .nav-link{ width: 230px; }
+}
+
+/* 01.07 Thème sombre (optionnel) */
+[data-theme="dark"]{
+  --hdr-bg: #0f1115; --hdr-fg: #e9e9ea; --hdr-muted: #9aa0a6; --hdr-border: #1f2937;
+}
+
+/* =======================================================
+   30. Page Hello (scopée avec préfixe .hello-)
+======================================================= */
+
+/* 02.01 Variables Hello */
 :root {
   --hello-bg: #f7f7f8;
   --hello-fg: #111111;
@@ -9,26 +122,16 @@
   --hello-shadow: 0 10px 30px rgba(0,0,0,.06);
   --hello-radius: 16px;
   --hello-space: 2rem;
-  --hello-primary: #ff4fa6; /* Rose demandé dans tes projets */
+  --hello-primary: #cc6a12; /* Rose demandé dans tes projets */
   --hello-focus: 2px solid #111111;
 }
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
 
-/* -------------------------------------------------------
-   02. Base
--------------------------------------------------------- */
-html { -webkit-text-size-adjust: 100%; }
-body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  background: var(--hello-bg);
-  color: var(--hello-fg);
-  line-height: 1.6;
-}
+/* 02.02 Base Hello (scopée – pas d'impact global) */
+.hello-container, .hello-card, .hello-muted, .hello-message, .hello-btn { box-sizing: border-box; }
+/* Pas de background sur <body> pour ne pas affecter l’en-tête */
+.hello-container { background: var(--hello-bg); }
 
-/* -------------------------------------------------------
-   03. Layout
--------------------------------------------------------- */
+/* 02.03 Layout */
 .hello-container {
   max-width: 720px;
   margin: 10vh auto;
@@ -41,10 +144,9 @@ body {
   padding: var(--hello-space);
 }
 
-/* -------------------------------------------------------
-   04. Typographie
--------------------------------------------------------- */
-h1 {
+/* 02.04 Typographie */
+.hello-card h1,
+#hello-title {
   margin: 0 0 1rem;
   font-size: 2.25rem;
   line-height: 1.2;
@@ -55,9 +157,7 @@ h1 {
 }
 .hello-message { margin: .25rem 0; }
 
-/* -------------------------------------------------------
-   05. Composants
--------------------------------------------------------- */
+/* 02.05 Bouton */
 .hello-btn {
   display: inline-block;
   margin-top: 1rem;
@@ -73,24 +173,108 @@ h1 {
 .hello-btn:active { transform: translateY(0); }
 .hello-btn:focus-visible { outline: var(--hello-focus); outline-offset: 4px; }
 
-/* -------------------------------------------------------
-   06. Utilitaires
--------------------------------------------------------- */
+/* 02.06 Utilitaires */
 .u-center { text-align: center; }
 .u-hide { display: none !important; }
 
-/* -------------------------------------------------------
-   07. Accessibilité & Préférences
--------------------------------------------------------- */
+/* 02.07 Accessibilité & Préférences */
 @media (prefers-reduced-motion: reduce) {
   .hello-btn { transition: none; }
 }
 
-/* -------------------------------------------------------
-   08. Responsive
--------------------------------------------------------- */
+/* 02.08 Responsive */
 @media (max-width: 640px) {
   .hello-container { margin: 4vh auto; padding: 1rem; }
   .hello-card { padding: 1.25rem; }
-  h1 { font-size: 1.8rem; }
+  .hello-card h1, #hello-title { font-size: 1.8rem; }
 }
+
+/* =======================================================
+   03. Footer (selon la maquette)
+======================================================= */
+
+/* 03.01 Variables */
+:root{
+  --ftr-bg: #ffffff;
+  --ftr-fg: #0f1720;
+  --ftr-border: #1f2937;     /* ligne du haut */
+  --ftr-muted: #374151;
+
+  --ftr-icon-size: 40px;     /* taille icônes réseaux */
+  --ftr-gap: 18px;
+  --ftr-vgap: 22px;
+}
+
+/* 03.02 Structure */
+.site-footer{
+  background: var(--ftr-bg);
+  color: var(--ftr-fg);
+  border-top: 3px solid var(--ftr-border); /* ligne supérieure comme la capture */
+}
+.ftr-wrap{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 16px 28px;
+  display: grid;
+  grid-template-columns: auto 1fr auto; /* social | centre | légal */
+  align-items: center;
+  column-gap: 32px;
+}
+
+/* 03.03 Réseaux sociaux (gauche, vertical) */
+.ftr-social{
+  display: flex;
+  flex-direction: column;
+  gap: var(--ftr-gap);
+}
+.ftr-icon{
+  width: var(--ftr-icon-size);
+  height: var(--ftr-icon-size);
+  display: block;
+}
+.ftr-social-link{ display: inline-block; line-height: 0; }
+
+/* 03.04 Bloc info (centre, lignes espacées) */
+.ftr-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ftr-vgap);
+  text-align: center;
+}
+.ftr-line{ margin: 0; }
+.ftr-link{
+  color: inherit;
+  text-decoration: none;
+}
+.ftr-link:hover{ text-decoration: underline; }
+
+/* 03.05 Liens légaux (droite, vertical) */
+.ftr-legal{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 28px;
+}
+.ftr-legal-link{
+  color: inherit;
+  text-decoration: none;
+}
+.ftr-legal-link:hover{ text-decoration: underline; }
+
+/* 03.06 Responsive */
+@media (max-width: 900px){
+  .ftr-wrap{
+    grid-template-columns: 1fr;      /* tout en colonne */
+    row-gap: 18px;
+    text-align: center;
+  }
+  .ftr-social{
+    flex-direction: row;              /* icônes en ligne */
+    justify-content: center;
+  }
+  .ftr-legal{
+    align-items: center;              /* liens légaux centrés */
+  }
+}
+
