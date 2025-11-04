@@ -278,3 +278,161 @@ body {
   }
 }
 
+/* =======================================================
+   04. Home (page d'accueil)
+======================================================= */
+
+/* 04.01 Variables */
+:root{
+  --home-border: #111111;
+  --home-radius: 12px;
+  --home-gap: 22px;
+  --home-card-pad: 16px;
+
+  /* Boutons */
+  --home-btn-border: #111111;
+  --home-btn-radius: 10px;
+  --home-btn-h: 44px;
+  --home-btn-pad-x: 18px;
+
+  /* CTA orange (aligné au header) */
+  --home-cta-top: #cc6a12;
+  --home-cta-bot: #a5530c;
+  --home-cta-text: #ffffff;
+
+  /* Etoiles */
+  --home-stars: #1f5eff;
+}
+
+/* 04.02 Helpers */
+.card{
+  background: #fff;
+  border: 3px solid var(--home-border);
+  border-radius: var(--home-radius);
+  padding: var(--home-card-pad);
+}
+
+/* 04.03 Layout général */
+.home{
+  max-width: 1200px;
+  margin: 24px auto 64px;
+  padding: 0 16px;
+}
+.home-section-title{
+  margin: 26px 0 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* 04.04 Hero */
+.home-hero{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--home-gap);
+  margin-bottom: 28px;
+}
+.home-hero-text{ margin: 0; text-align: center; }
+.home-hero-cta{
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+.btn{
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--home-btn-h);
+  padding: 0 var(--home-btn-pad-x);
+  border-radius: var(--home-btn-radius);
+  text-decoration: none;
+  font-weight: 600;
+  border: 3px solid var(--home-btn-border);
+  color: #111;
+}
+.btn-outline{ background: #fff; }
+.btn-outline:hover{ background: #f7f7f7; }
+.btn-orange{
+  color: var(--home-cta-text);
+  background: linear-gradient(180deg, var(--home-cta-top), var(--home-cta-bot));
+}
+.btn-orange:hover{ opacity: .95; }
+
+/* Bloc images à droite du hero */
+.home-hero-right .home-hero-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.home-hero-img{
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* 04.05 Produits populaires */
+.home-products{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--home-gap);
+  margin-bottom: 28px;
+}
+.prod-card{ padding: 0; }
+.prod-thumb{
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: var(--home-radius) var(--home-radius) 0 0;
+  display: block;
+  border-bottom: 3px solid var(--home-border);
+}
+.prod-body{
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+.pill{
+  border: 3px solid var(--home-border);
+  border-radius: 10px;
+  padding: 6px 10px;
+  background: #fff;
+}
+
+/* 04.06 Avis client */
+.home-reviews{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--home-gap);
+  margin-bottom: 28px;
+}
+.review-card{
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+.stars{
+  color: var(--home-stars);
+  font-size: 20px;
+  letter-spacing: 3px;
+}
+.quote{ font-weight: 500; }
+
+/* 04.07 Contact */
+.home-contact{
+  text-align: center;
+  margin: 40px 0 20px;
+}
+.home-contact a{
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* 04.08 Responsive */
+@media (max-width: 1000px){
+  .home-hero{ grid-template-columns: 1fr; }
+}
+@media (max-width: 900px){
+  .home-products, .home-reviews{ grid-template-columns: 1fr; }
+}
+
