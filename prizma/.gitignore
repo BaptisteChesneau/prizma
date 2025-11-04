@@ -1,0 +1,21 @@
+.gitignore# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Environnements
+.venv/
+env/
+venv/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Flask/Build
+instance/
+dist/
+build/

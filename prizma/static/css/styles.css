@@ -1,0 +1,96 @@
+/* -------------------------------------------------------
+   01. Variables & Reset
+-------------------------------------------------------- */
+:root {
+  --hello-bg: #f7f7f8;
+  --hello-fg: #111111;
+  --hello-muted: #666666;
+  --hello-card: #ffffff;
+  --hello-shadow: 0 10px 30px rgba(0,0,0,.06);
+  --hello-radius: 16px;
+  --hello-space: 2rem;
+  --hello-primary: #ff4fa6; /* Rose demandé dans tes projets */
+  --hello-focus: 2px solid #111111;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+/* -------------------------------------------------------
+   02. Base
+-------------------------------------------------------- */
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: var(--hello-bg);
+  color: var(--hello-fg);
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------------
+   03. Layout
+-------------------------------------------------------- */
+.hello-container {
+  max-width: 720px;
+  margin: 10vh auto;
+  padding: var(--hello-space);
+}
+.hello-card {
+  background: var(--hello-card);
+  border-radius: var(--hello-radius);
+  box-shadow: var(--hello-shadow);
+  padding: var(--hello-space);
+}
+
+/* -------------------------------------------------------
+   04. Typographie
+-------------------------------------------------------- */
+h1 {
+  margin: 0 0 1rem;
+  font-size: 2.25rem;
+  line-height: 1.2;
+}
+.hello-muted {
+  color: var(--hello-muted);
+  margin: .25rem 0 1rem;
+}
+.hello-message { margin: .25rem 0; }
+
+/* -------------------------------------------------------
+   05. Composants
+-------------------------------------------------------- */
+.hello-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .65rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  background: var(--hello-primary);
+  color: #fff;
+  font-weight: 600;
+  transition: transform .08s ease, opacity .2s ease;
+}
+.hello-btn:hover { opacity: .92; transform: translateY(-1px); }
+.hello-btn:active { transform: translateY(0); }
+.hello-btn:focus-visible { outline: var(--hello-focus); outline-offset: 4px; }
+
+/* -------------------------------------------------------
+   06. Utilitaires
+-------------------------------------------------------- */
+.u-center { text-align: center; }
+.u-hide { display: none !important; }
+
+/* -------------------------------------------------------
+   07. Accessibilité & Préférences
+-------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hello-btn { transition: none; }
+}
+
+/* -------------------------------------------------------
+   08. Responsive
+-------------------------------------------------------- */
+@media (max-width: 640px) {
+  .hello-container { margin: 4vh auto; padding: 1rem; }
+  .hello-card { padding: 1.25rem; }
+  h1 { font-size: 1.8rem; }
+}

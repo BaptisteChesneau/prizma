@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title or "Hello" }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hello.css') }}">
+  </head>
+  <body>
+    <main class="hello-container">
+      <section class="hello-card" role="region" aria-labelledby="hello-title">
+        <h1 id="hello-title">Hello, {{ name or "World" }} 👋</h1>
+        <p class="hello-muted">Ce message vient d’un template Jinja2.</p>
+        {% if message %}
+          <p class="hello-message">{{ message }}</p>
+        {% endif %}
+        <a class="hello-btn" href="/">Revenir à l’accueil</a>
+      </section>
+    </main>
+  </body>
+</html>
