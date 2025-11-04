@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Compte — Prizma</title>
+    <title>Créer un compte — Prizma</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
   </head>
   <body>
@@ -38,7 +38,8 @@
           {% endif %}
         {% endif %}
 
-        <form class="auth-form" method="post" action="{{ url_for('auth_create') }}" novalidate>
+        <!-- Action mise à jour vers la nouvelle route /sign-up/create -->
+        <form class="auth-form" method="post" action="{{ url_for('signup_create') }}" novalidate>
           <div class="form-grid">
             <div class="form-field">
               <label for="prenom">Prénom</label>
@@ -81,7 +82,10 @@
           </div>
         </form>
 
-        <p class="auth-note">Déjà un compte ? (module de connexion à venir)</p>
+        <p class="auth-note">
+          Déjà un compte ?
+          <a href="{{ url_for('login') }}">Se connecter</a>
+        </p>
       </section>
     </main>
 
