@@ -279,18 +279,16 @@ body {
 }
 
 /* =======================================================
-   04. Home (page d'accueil)
+   04. Home (page d'accueil) — sans bordures noires
 ======================================================= */
 
 /* 04.01 Variables */
 :root{
-  --home-border: #111111;
   --home-radius: 12px;
   --home-gap: 22px;
   --home-card-pad: 16px;
 
   /* Boutons */
-  --home-btn-border: #111111;
   --home-btn-radius: 10px;
   --home-btn-h: 44px;
   --home-btn-pad-x: 18px;
@@ -300,45 +298,29 @@ body {
   --home-cta-bot: #a5530c;
   --home-cta-text: #ffffff;
 
-  /* Etoiles */
-  --home-stars: #1f5eff;
+  /* Couleurs douces */
+  --home-ring: rgba(0,0,0,.08);
+  --home-shadow: 0 8px 24px rgba(0,0,0,.06);
 }
 
-/* 04.02 Helpers */
+/* 04.02 Cartes (plus de bordure noire) */
 .card{
   background: #fff;
-  border: 3px solid var(--home-border);
+  border: none;                        /* ← supprime la bordure */
   border-radius: var(--home-radius);
   padding: var(--home-card-pad);
+  box-shadow: var(--home-shadow);      /* douceur à la place */
 }
 
 /* 04.03 Layout général */
-.home{
-  max-width: 1200px;
-  margin: 24px auto 64px;
-  padding: 0 16px;
-}
-.home-section-title{
-  margin: 26px 0 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #333;
-}
+.home{ max-width: 1200px; margin: 24px auto 64px; padding: 0 16px; }
+.home-section-title{ margin: 26px 0 12px; font-size: 1rem; font-weight: 600; color: #333; }
 
 /* 04.04 Hero */
-.home-hero{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--home-gap);
-  margin-bottom: 28px;
-}
+.home-hero{ display: grid; grid-template-columns: 1fr 1fr; gap: var(--home-gap); margin-bottom: 28px; }
 .home-hero-text{ margin: 0; text-align: center; }
-.home-hero-cta{
-  margin-top: 14px;
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-}
+.home-hero-cta{ margin-top: 14px; display: flex; gap: 12px; justify-content: center; }
+
 .btn{
   display: inline-flex; align-items: center; justify-content: center;
   min-height: var(--home-btn-h);
@@ -346,10 +328,9 @@ body {
   border-radius: var(--home-btn-radius);
   text-decoration: none;
   font-weight: 600;
-  border: 3px solid var(--home-btn-border);
-  color: #111;
+  border: none;                        /* ← supprime la bordure des boutons */
 }
-.btn-outline{ background: #fff; }
+.btn-outline{ background: #fff; box-shadow: 0 0 0 1px var(--home-ring) inset; }
 .btn-outline:hover{ background: #f7f7f7; }
 .btn-orange{
   color: var(--home-cta-text);
@@ -358,81 +339,40 @@ body {
 .btn-orange:hover{ opacity: .95; }
 
 /* Bloc images à droite du hero */
-.home-hero-right .home-hero-grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-.home-hero-img{
-  width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 10px;
-  display: block;
-}
+.home-hero-right .home-hero-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.home-hero-img{ width: 100%; height: 120px; object-fit: cover; border-radius: 10px; display: block; }
 
-/* 04.05 Produits populaires */
-.home-products{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--home-gap);
-  margin-bottom: 28px;
-}
+/* 04.05 Produits populaires (sans bordures noires) */
+.home-products{ display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--home-gap); margin-bottom: 28px; }
 .prod-card{ padding: 0; }
 .prod-thumb{
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
+  width: 100%; height: 160px; object-fit: cover; display: block;
   border-radius: var(--home-radius) var(--home-radius) 0 0;
-  display: block;
-  border-bottom: 3px solid var(--home-border);
+  /* plus de trait noir entre image et carte */
 }
-.prod-body{
-  padding: 12px;
-  display: grid;
-  gap: 10px;
-}
+.prod-body{ padding: 12px; display: grid; gap: 10px; }
+
+/* étiquettes (pills) sans bordure noire */
 .pill{
-  border: 3px solid var(--home-border);
+  border: none;                        /* ← supprime la bordure */
   border-radius: 10px;
-  padding: 6px 10px;
+  padding: 8px 12px;
   background: #fff;
+  box-shadow: 0 0 0 1px var(--home-ring) inset; /* liseré discret (peut être retiré) */
 }
 
 /* 04.06 Avis client */
-.home-reviews{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--home-gap);
-  margin-bottom: 28px;
-}
-.review-card{
-  display: grid;
-  gap: 12px;
-  padding: 14px;
-}
-.stars{
-  color: var(--home-stars);
-  font-size: 20px;
-  letter-spacing: 3px;
-}
+.home-reviews{ display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--home-gap); margin-bottom: 28px; }
+.review-card{ display: grid; gap: 12px; padding: 14px; }
+.stars{ color: #1f5eff; font-size: 20px; letter-spacing: 3px; }
 .quote{ font-weight: 500; }
 
 /* 04.07 Contact */
-.home-contact{
-  text-align: center;
-  margin: 40px 0 20px;
-}
-.home-contact a{
-  color: #1d4ed8;
-  text-decoration: underline;
-}
+.home-contact{ text-align: center; margin: 40px 0 20px; }
+.home-contact a{ color: #1d4ed8; text-decoration: underline; }
 
 /* 04.08 Responsive */
-@media (max-width: 1000px){
-  .home-hero{ grid-template-columns: 1fr; }
-}
+@media (max-width: 1000px){ .home-hero{ grid-template-columns: 1fr; } }
 @media (max-width: 900px){
   .home-products, .home-reviews{ grid-template-columns: 1fr; }
 }
-

@@ -1,38 +1,20 @@
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Header — Prizma</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
-  </head>
-  <body>
-    <header class="site-header" role="banner">
-      <div class="hdr-wrap">
-        <a class="brand" href="/">
-          <!-- Remplace le symbole par ton logo si besoin -->
-          <span class="logo" aria-hidden="true">◆</span>
-          <span class="brand-text">Prizma</span>
-        </a>
+<header class="site-header" role="banner">
+  <div class="hdr-wrap">
+    <a class="brand" href="/">
+      <span class="logo" aria-hidden="true">◆</span>
+      <span class="brand-text">Prizma</span>
+    </a>
 
-        <!-- Burger (mobile) -->
-        <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
-        <label for="nav-toggle" class="nav-btn" aria-label="Menu principal">
-          <span class="nav-btn-bar"></span>
-        </label>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <label for="nav-toggle" class="nav-btn" aria-label="Menu principal">
+      <span class="nav-btn-bar"></span>
+    </label>
 
-        <nav id="site-nav" class="site-nav" role="navigation" aria-label="Navigation principale">
-          <a href="/" class="nav-link is-active" aria-current="page">Accueil</a>
-          <a href="/produits" class="nav-link">Produits</a>
-          <a href="/contact" class="nav-link">Contacter</a>
-          <a href="/auth" class="nav-link cta">Se connecter/Créer un compte</a>
-        </nav>
-      </div>
-    </header>
-
-    <main class="site-main" style="padding:2rem">
-      <h1>Exemple de page avec header</h1>
-      <p>Remplace ce contenu par ta page d’accueil.</p>
-    </main>
-  </body>
-</html>
+    <nav class="site-nav" role="navigation" aria-label="Navigation principale">
+      <a href="/" class="nav-link">Accueil</a>
+      <a href="/produits" class="nav-link">Produits</a>
+      <a href="/contact" class="nav-link">Contacter</a>
+      <a href="/auth" class="nav-link cta">Se connecter/Créer un compte</a>
+    </nav>
+  </div>
+</header>
