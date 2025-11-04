@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Produits — Prizma</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <main class="products">
+      <!-- Barre de titre + recherche -->
+      <header class="prod-header">
+        <h1 class="prod-title">Catalogue produits</h1>
+        <form class="prod-search" role="search" aria-label="Rechercher une rubrique">
+          <input class="prod-input" type="search" placeholder="Rechercher une rubrique ou sous-catégorie…" aria-label="Recherche">
+        </form>
+      </header>
+
+      <div class="prod-layout">
+        <!-- NAV latérale -->
+        <aside class="prod-aside" aria-label="Rubriques principales">
+          <nav class="prod-nav">
+            <a href="#maison" class="prod-nav-link">Maison &amp; Jardin</a>
+            <a href="#hightech" class="prod-nav-link">Informatique &amp; High-Tech</a>
+            <a href="#tel" class="prod-nav-link">Téléphonie &amp; Objets connectés</a>
+            <a href="#av" class="prod-nav-link">Image &amp; Son</a>
+            <a href="#jeux" class="prod-nav-link">Jeux vidéo &amp; Consoles</a>
+            <a href="#auto" class="prod-nav-link">Auto, Moto &amp; GPS</a>
+            <a href="#mode" class="prod-nav-link">Mode &amp; Beauté</a>
+            <a href="#bebe" class="prod-nav-link">Bébé &amp; Puériculture</a>
+            <a href="#jouets" class="prod-nav-link">Jouets &amp; Enfants</a>
+            <a href="#sport" class="prod-nav-link">Sport &amp; Loisirs</a>
+            <a href="#voyage" class="prod-nav-link">Voyage &amp; Bagagerie</a>
+            <a href="#animaux" class="prod-nav-link">Animaux</a>
+            <a href="#bureau" class="prod-nav-link">Bureau &amp; Fournitures</a>
+            <a href="#supermarche" class="prod-nav-link">Supermarché &amp; Alimentation</a>
+          </nav>
+        </aside>
+
+        <!-- CONTENU -->
+        <div class="prod-content">
+          <!-- Maison & Jardin -->
+          <section id="maison" class="prod-section card" aria-labelledby="h-maison">
+            <h2 id="h-maison" class="prod-h2">Maison &amp; Jardin</h2>
+            <div class="subcats">
+              <span class="pill">Meubles & Décoration</span>
+              <span class="pill">Linge de maison</span>
+              <span class="pill">Cuisine & Arts de la table</span>
+              <span class="pill">Électroménager</span>
+              <span class="pill">Bricolage & Outillage</span>
+              <span class="pill">Jardin, terrasse & piscine</span>
+              <span class="pill">Domotique & Sécurité</span>
+            </div>
+          </section>
+
+          <!-- Informatique & High-Tech -->
+          <section id="hightech" class="prod-section card" aria-labelledby="h-hightech">
+            <h2 id="h-hightech" class="prod-h2">Informatique &amp; High-Tech</h2>
+            <div class="subcats">
+              <span class="pill">Ordinateurs portables</span>
+              <span class="pill">PC de bureau</span>
+              <span class="pill">Composants & périphériques</span>
+              <span class="pill">Tablettes & liseuses</span>
+              <span class="pill">Écrans & moniteurs</span>
+              <span class="pill">Imprimantes & scanners</span>
+              <span class="pill">Accessoires (claviers, souris, sacs…)</span>
+            </div>
+          </section>
+
+          <!-- Téléphonie -->
+          <section id="tel" class="prod-section card" aria-labelledby="h-tel">
+            <h2 id="h-tel" class="prod-h2">Téléphonie &amp; Objets connectés</h2>
+            <div class="subcats">
+              <span class="pill">Smartphones</span>
+              <span class="pill">Accessoires téléphone</span>
+              <span class="pill">Montres & bracelets connectés</span>
+              <span class="pill">Casques & écouteurs</span>
+              <span class="pill">Batteries & chargeurs</span>
+            </div>
+          </section>
+
+          <!-- Image & Son -->
+          <section id="av" class="prod-section card" aria-labelledby="h-av">
+            <h2 id="h-av" class="prod-h2">Image &amp; Son</h2>
+            <div class="subcats">
+              <span class="pill">Téléviseurs</span>
+              <span class="pill">Home cinéma & barres de son</span>
+              <span class="pill">Vidéoprojecteurs</span>
+              <span class="pill">Appareils photo & caméras</span>
+              <span class="pill">Drones & accessoires</span>
+            </div>
+          </section>
+
+          <!-- Jeux vidéo -->
+          <section id="jeux" class="prod-section card" aria-labelledby="h-jeux">
+            <h2 id="h-jeux" class="prod-h2">Jeux vidéo &amp; Consoles</h2>
+            <div class="subcats">
+              <span class="pill">Consoles (PS5, Xbox, Nintendo…)</span>
+              <span class="pill">Jeux vidéo</span>
+              <span class="pill">Accessoires gaming</span>
+              <span class="pill">PC gamer & périphériques</span>
+            </div>
+          </section>
+
+          <!-- Auto -->
+          <section id="auto" class="prod-section card" aria-labelledby="h-auto">
+            <h2 id="h-auto" class="prod-h2">Auto, Moto &amp; GPS</h2>
+            <div class="subcats">
+              <span class="pill">Pièces auto & moto</span>
+              <span class="pill">Accessoires intérieurs / extérieurs</span>
+              <span class="pill">Pneus & jantes</span>
+              <span class="pill">GPS & caméras embarquées</span>
+              <span class="pill">Produits d’entretien</span>
+            </div>
+          </section>
+
+          <!-- Mode & Beauté -->
+          <section id="mode" class="prod-section card" aria-labelledby="h-mode">
+            <h2 id="h-mode" class="prod-h2">Mode &amp; Beauté</h2>
+            <div class="subcats">
+              <span class="pill">Vêtements homme / femme / enfant</span>
+              <span class="pill">Chaussures</span>
+              <span class="pill">Montres & bijoux</span>
+              <span class="pill">Maquillage & soins</span>
+              <span class="pill">Parfums</span>
+              <span class="pill">Hygiène & bien-être</span>
+            </div>
+          </section>
+
+          <!-- Bébé -->
+          <section id="bebe" class="prod-section card" aria-labelledby="h-bebe">
+            <h2 id="h-bebe" class="prod-h2">Bébé &amp; Puériculture</h2>
+            <div class="subcats">
+              <span class="pill">Poussettes & sièges auto</span>
+              <span class="pill">Alimentation & repas bébé</span>
+              <span class="pill">Jouets d’éveil</span>
+              <span class="pill">Lits & mobilier bébé</span>
+              <span class="pill">Sécurité et hygiène</span>
+            </div>
+          </section>
+
+          <!-- Jouets -->
+          <section id="jouets" class="prod-section card" aria-labelledby="h-jouets">
+            <h2 id="h-jouets" class="prod-h2">Jouets &amp; Enfants</h2>
+            <div class="subcats">
+              <span class="pill">Jeux éducatifs</span>
+              <span class="pill">Figurines & poupées</span>
+              <span class="pill">Jeux de société</span>
+              <span class="pill">Véhicules & circuits</span>
+              <span class="pill">Loisirs créatifs</span>
+            </div>
+          </section>
+
+          <!-- Sport -->
+          <section id="sport" class="prod-section card" aria-labelledby="h-sport">
+            <h2 id="h-sport" class="prod-h2">Sport &amp; Loisirs</h2>
+            <div class="subcats">
+              <span class="pill">Fitness & musculation</span>
+              <span class="pill">Sports d’extérieur</span>
+              <span class="pill">Sports d’équipe</span>
+              <span class="pill">Vélo, trottinette & accessoires</span>
+              <span class="pill">Natation & sports nautiques</span>
+            </div>
+          </section>
+
+          <!-- Voyage -->
+          <section id="voyage" class="prod-section card" aria-labelledby="h-voyage">
+            <h2 id="h-voyage" class="prod-h2">Voyage &amp; Bagagerie</h2>
+            <div class="subcats">
+              <span class="pill">Valises & sacs de voyage</span>
+              <span class="pill">Sacs à dos</span>
+              <span class="pill">Accessoires de voyage</span>
+            </div>
+          </section>
+
+          <!-- Animaux -->
+          <section id="animaux" class="prod-section card" aria-labelledby="h-animaux">
+            <h2 id="h-animaux" class="prod-h2">Animaux</h2>
+            <div class="subcats">
+              <span class="pill">Chiens</span>
+              <span class="pill">Chats</span>
+              <span class="pill">Rongeurs, poissons, oiseaux</span>
+              <span class="pill">Alimentation & accessoires</span>
+            </div>
+          </section>
+
+          <!-- Bureau -->
+          <section id="bureau" class="prod-section card" aria-labelledby="h-bureau">
+            <h2 id="h-bureau" class="prod-h2">Bureau &amp; Fournitures</h2>
+            <div class="subcats">
+              <span class="pill">Mobilier de bureau</span>
+              <span class="pill">Fournitures scolaires & bureautiques</span>
+              <span class="pill">Matériel d’impression</span>
+            </div>
+          </section>
+
+          <!-- Supermarché -->
+          <section id="supermarche" class="prod-section card" aria-labelledby="h-supermarche">
+            <h2 id="h-supermarche" class="prod-h2">Supermarché &amp; Alimentation</h2>
+            <div class="subcats">
+              <span class="pill">Épicerie</span>
+              <span class="pill">Boissons</span>
+              <span class="pill">Produits bio</span>
+              <span class="pill">Produits d’entretien</span>
+            </div>
+          </section>
+
+          <!-- Guides de classement (exemples multi-catégories) -->
+          <section class="prod-section card" aria-labelledby="h-guides">
+            <h2 id="h-guides" class="prod-h2">Guides de classement (exemples)</h2>
+
+            <details class="guide">
+              <summary class="guide-title">High-Tech & Informatique</summary>
+              <ul class="guide-list">
+                <li><strong>Casque audio Bluetooth</strong> — Téléphonie / Image & Son / Jeux vidéo / Informatique</li>
+                <li><strong>Écran PC</strong> — Informatique / Image & Son / Jeux vidéo</li>
+                <li><strong>Disque dur externe</strong> — Informatique / Accessoires / Bureau</li>
+                <li><strong>Clé USB</strong> — Informatique / Fournitures / École</li>
+                <li><strong>Imprimante multifonction</strong> — Informatique / Bureau / Fournitures</li>
+                <li><strong>Lampe connectée</strong> — Maison & Domotique / High-Tech / Décoration</li>
+                <li><strong>Prise connectée</strong> — Maison connectée / Électricité & Bricolage / High-Tech</li>
+              </ul>
+            </details>
+
+            <details class="guide">
+              <summary class="guide-title">Téléphonie & Accessoires</summary>
+              <ul class="guide-list">
+                <li><strong>Coque de téléphone</strong> — Téléphonie / Accessoires / Mode</li>
+                <li><strong>Montre connectée</strong> — Téléphonie / Sport / Mode</li>
+                <li><strong>Batterie externe</strong> — Téléphonie / Informatique / Voyage</li>
+                <li><strong>Écouteurs sans fil</strong> — Téléphonie / Image & Son / Sport</li>
+                <li><strong>Support voiture smartphone</strong> — Auto / Téléphonie / Accessoires</li>
+              </ul>
+            </details>
+
+            <details class="guide">
+              <summary class="guide-title">Maison, Jardin & Bricolage</summary>
+              <ul class="guide-list">
+                <li><strong>Perceuse sans fil</strong> — Bricolage / Jardin / Maison</li>
+                <li><strong>Ampoules LED</strong> — Maison / Électricité / Domotique</li>
+                <li><strong>Barbecue électrique</strong> — Jardin / Cuisine / Électroménager</li>
+                <li><strong>Ventilateur / Climatiseur mobile</strong> — Maison / Électroménager / Bien-être</li>
+                <li><strong>Aspirateur robot</strong> — Maison / Électroménager / High-Tech</li>
+                <li><strong>Coffre de rangement</strong> — Maison / Jardin / Bricolage</li>
+              </ul>
+            </details>
+
+            <details class="guide">
+              <summary class="guide-title">Voyage, Sport & Mode</summary>
+              <ul class="guide-list">
+                <li><strong>Sac à dos</strong> — Voyage / Mode / Sport / École</li>
+                <li><strong>Lunettes de soleil</strong> — Mode / Sport / Voyage</li>
+                <li><strong>Chaussures de randonnée</strong> — Sport / Voyage / Mode</li>
+                <li><strong>Veste imperméable</strong> — Mode / Sport / Outdoor</li>
+                <li><strong>Montre sport</strong> — Sport / Téléphonie / Mode</li>
+              </ul>
+            </details>
+
+            <details class="guide">
+              <summary class="guide-title">Bébé & Puériculture</summary>
+              <ul class="guide-list">
+                <li><strong>Tapis d’éveil</strong> — Bébé / Jouets / Maison</li>
+                <li><strong>Chaise haute</strong> — Bébé / Cuisine / Maison</li>
+                <li><strong>Caméra de surveillance bébé</strong> — Bébé / Domotique / Sécurité</li>
+                <li><strong>Lumière veilleuse</strong> — Bébé / Maison / Éclairage</li>
+                <li><strong>Biberon chauffant</strong> — Bébé / Cuisine / Électroménager</li>
+              </ul>
+            </details>
+
+            <details class="guide">
+              <summary class="guide-title">Auto & Voyage</summary>
+              <ul class="guide-list">
+                <li><strong>Chargeur de voiture USB</strong> — Auto / Téléphonie / Accessoires</li>
+                <li><strong>Caméra embarquée (dashcam)</strong> — Auto / High-Tech / Sécurité</li>
+                <li><strong>GPS portable</strong> — Auto / Voyage / High-Tech</li>
+                <li><strong>Compresseur portatif</strong> — Auto / Bricolage / Sport</li>
+                <li><strong>Glacière électrique</strong> — Auto / Voyage / Maison</li>
+                <li><strong>Fer à repasser de voyage</strong> — Électroménager / Voyage / Mode</li>
+                <li><strong>Mini-aspirateur</strong> — Maison / Voyage / Bricolage</li>
+                <li><strong>Bouteille isotherme</strong> — Voyage / Sport / Maison</li>
+                <li><strong>Balance électronique</strong> — Cuisine / Santé / Voyage</li>
+              </ul>
+            </details>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    {% include 'footer.html' %}
+  </body>
+</html>

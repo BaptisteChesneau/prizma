@@ -20,10 +20,11 @@ def header_fragment():
 def footer_fragment():
     return render_template("footer.html")
 
-# Stubs de navigation
 @app.get("/produits")
 def produits():
-    return "Produits — placeholder"
+    return render_template("products.html")
+
+# Stubs de navigation
 
 @app.get("/contact")
 def contact():
