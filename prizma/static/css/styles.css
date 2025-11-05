@@ -94,3 +94,452 @@ h1 {
   .hello-card { padding: 1.25rem; }
   h1 { font-size: 1.8rem; }
 }
+
+
+/* === Structure générale === */
+body.main-body {
+  font-family: 'Roboto', sans-serif;
+  color: #0F172A;
+  background-color: #FFFFFF;
+  margin: 0;
+}
+
+/* === Header === */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #F8FAFC;
+}
+
+.header-logo {
+  height: 40px;
+}
+
+.header-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.header-link {
+  text-decoration: none;
+  color: #64748B;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.header-link:hover,
+.header-link.active {
+  color: #1D4ED8;
+}
+
+/* === Footer === */
+.footer {
+  text-align: center;
+  background-color: #F8FAFC;
+  color: #64748B;
+  font-size: 0.875rem;
+  padding: 1rem;
+  margin-top: 3rem;
+}
+
+.legal_notices-container {
+  background-color: white;
+  padding: 3rem 2rem;
+}
+
+.legal_notices-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.legal_notices-h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: black;
+  margin-bottom: 2rem;
+}
+
+.legal_notices-h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  color: black;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.legal_notices-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.legal_notices-link {
+  color: #1D4ED8;
+  text-decoration: none;
+}
+
+.legal_notices-link:hover {
+  text-decoration: underline;
+}
+
+/* === Page Politique de cookies === */
+.cookies_policy-container {
+  background-color: white;
+  padding: 3rem 2rem;
+}
+
+.cookies_policy-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cookies_policy-h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 2.5rem;
+  color: black;
+  margin-bottom: 2rem;
+}
+
+.cookies_policy-h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 2rem;
+  color: black;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cookies_policy-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.cookies_policy-link {
+  color: #1D4ED8;
+  text-decoration: none;
+}
+
+.cookies_policy-link:hover {
+  text-decoration: underline;
+}
+
+.cookies_policy-list {
+  margin: 1rem 0 1.5rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.cookies_policy-list li {
+  margin-bottom: 0.5rem;
+}
+
+.account-fidelity-btn {
+  margin-top: 0.5rem;
+  background-color: #0B8F24; 
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.account-fidelity-btn:hover {
+  background-color: #0A7B20;
+}
+
+/* =========================================================
+   account.html
+   ========================================================= */
+
+   .account-container {
+    display: flex;
+    min-height: 100vh; 
+    background-color: #F8FAFC;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden; 
+  }
+  
+  /* === SIDEBAR === */
+  .account-sidebar {
+    width: 250px;
+    height: 100vh; 
+    background-color: #FFFFFF;
+    border-right: 1px solid #E2E8F0;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: sticky;
+    top: 0; 
+  }
+  
+  .account-sidebar-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: black;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .account-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-grow: 1;
+    overflow-y: auto; 
+    padding-right: 0.25rem; 
+  }
+  
+  .account-nav-btn {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #0F172A;
+    transition: 0.2s;
+  }
+  
+  .account-nav-btn:hover,
+  .account-nav-btn.active {
+    background-color: #F8FAFC;
+    color: black;
+  }
+  
+  /* LOG OUT */
+  .account-logout-btn {
+    background-color: #B45309; 
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.2s;
+  }
+  
+  .account-logout-btn:hover {
+    background-color: #92400E;
+  }
+  
+  /* === MAIN CONTENT === */
+  .account-content {
+    flex: 1;
+    padding: 2rem 3rem;
+    background-color: #F8FAFC;
+    overflow-y: auto; 
+    height: 100vh;
+  }
+  
+  /* === Sections === */
+  .account-section {
+    display: none;
+  }
+  
+  .account-section.active {
+    display: block;
+  }
+  
+  .account-section-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* === PERSONAL INFORMATIONS === */
+  .account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 400px;
+  }
+  
+  .account-form label {
+    font-weight: 500;
+    color: #0F172A;
+  }
+  
+  .account-input {
+    border: 1px solid #CBD5E1;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  .account-input:focus {
+    outline: none;
+    border-color: #B45309;
+    box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.15);
+  }
+  
+  .account-save-btn {
+    align-self: flex-start;
+    background-color: #B45309;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.2s;
+  }
+  
+  .account-save-btn:hover {
+    background-color: #92400E;
+  }
+  
+  /* === LOYALTY CARD === */
+  .account-fidelity-btn {
+    margin-top: 0.5rem;
+    background-color: #B45309;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s;
+  }
+  
+  .account-fidelity-btn:hover {
+    background-color: #92400E;
+  }
+  
+  /* === FAVORIS === */
+  .account-fav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .account-fav-card {
+    background-color: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .account-fav-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+  }
+  
+  .account-pagination {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .account-page-btn {
+    background: none;
+    border: 1px solid #B45309;
+    color: #B45309;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .account-page-btn:hover {
+    background-color: #B45309;
+    color: white;
+  }
+  
+  /* === ADMIN === */
+  .account-admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .account-admin-card {
+    background-color: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: #0F172A;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .account-admin-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: #B45309;
+    color: #B45309;
+  }
+  
+  /* === RESPONSIVE === */
+  @media (max-width: 900px) {
+    .account-container {
+      flex-direction: column;
+    }
+  
+    .account-sidebar {
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      border-right: none;
+      border-bottom: 1px solid #E2E8F0;
+      height: auto; 
+    }
+  
+    .account-nav {
+      flex-direction: row;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+  
+    .account-content {
+      padding: 1.5rem;
+      height: auto;
+    }
+  
+    .account-fav-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .account-fav-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  

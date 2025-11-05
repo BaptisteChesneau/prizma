@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Prizma{% endblock %}</title>
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Roboto:wght@400&display=swap" rel="stylesheet" />
+
+    <!-- Fichier CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+
+  <body class="main-body">
+    <header class="header">
+      <img src="{{ url_for('static', filename='img/Prizma.png') }}" alt="Logo Prizma" class="header-logo" />
+      <nav class="header-nav">
+        <a href="/" class="header-link active">Accueil</a>
+        <a href="/mentions-legales/" class="header-link">Mentions légales</a>
+      </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer">
+      © 2025 Prizma — Tous droits réservés.
+    </footer>
+  </body>
+</html>
