@@ -338,7 +338,7 @@ def catalogue(category, subcat):
     sub_label = subcat.replace("-", " ").capitalize()
 
     return render_template(
-        "catalogue.html",
+        "catalog.html",
         category=category,
         subcat=subcat,
         cat_label=cat_label,
