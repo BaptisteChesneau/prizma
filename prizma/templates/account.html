@@ -27,21 +27,21 @@
           <div class="alert alert-success" role="status" aria-live="polite">
             ✅ Informations mises à jour.
           </div>
-        {% elif success is sameas false %}
+        {% elif success is sameas(false) %}
           <div class="alert alert-error" role="alert" aria-live="polite">
             ❌ La mise à jour a échoué. Vérifiez les champs ci-dessus.
           </div>
         {% endif %}
 
-        <!-- Grille : barre latérale + contenu -->
+        <!-- Grille: Sidebar + Contenu -->
         <div class="account-grid" style="display:grid; grid-template-columns: 240px 1fr; gap:16px;">
-          <!-- Barre latérale -->
+          <!-- Sidebar -->
           <aside class="account-sidebar" aria-label="Navigation du compte">
             <h2 class="account-sidebar-title" style="margin:0 0 8px;">Mon compte</h2>
             <nav class="account-nav" style="display:grid; gap:8px;">
               <button class="account-nav-btn active" data-section="infos" type="button">Informations personnelles</button>
               <button class="account-nav-btn" data-section="favoris" type="button">Produits favoris</button>
-              <button class="account-nav-btn admin-only" data-section="admin" type="button">Tableau de bord Admin</button>
+              <button class="account-nav-btn admin-only" data-section="admin" type="button">Tableau de bord admin</button>
               <a class="account-logout-btn btn" href="{{ url_for('logout') }}" style="text-align:center;">Déconnexion</a>
             </nav>
           </aside>
@@ -97,7 +97,7 @@
                 </div>
               </form>
 
-              <!-- Aperçu carte de fidélité -->
+              <!-- Aperçu carte fidélité -->
               <div id="fidelity-card-container" style="margin-top: 1rem;"></div>
             </div>
 
@@ -120,7 +120,7 @@
 
             <!-- Section : Admin -->
             <div id="section-admin" class="account-section" hidden>
-              <h3 class="account-section-title" style="margin-top:0;">Tableau de bord Admin</h3>
+              <h3 class="account-section-title" style="margin-top:0;">Tableau de bord admin</h3>
               <div class="account-admin-grid" style="display:grid; grid-template-columns: repeat(3,1fr); gap:16px;">
                 <div class="account-admin-card card">👥 Gérer les utilisateurs</div>
                 <div class="account-admin-card card">📦 Gérer les produits</div>
@@ -131,57 +131,48 @@
         </div>
       </section>
     </main>
+<script>
+  const isAdmin = true;
 
-    {% include 'footer.html' %}
+  document.addEventListener("DOMContentLoaded", () => {
+    // Sidebar navigation
+    const buttons = document.querySelectorAll(".account-nav-btn");
+    const sections = document.querySelectorAll(".account-section");
+    const adminItems = document.querySelectorAll(".admin-only");
 
-    <script>
-      // Rôle admin injecté depuis le backend (False par défaut si non fourni)
-      const IS_ADMIN = {{ (is_admin|default(false))|tojson }};
+    adminItems.forEach(item => {
+      if (!isAdmin) item.style.display = "none";
+    });
 
-      document.addEventListener("DOMContentLoaded", () => {
-        // --- Onglets latéraux ---
-        const btns = document.querySelectorAll(".account-nav-btn");
-        const sections = document.querySelectorAll(".account-section");
-        const adminItems = document.querySelectorAll(".admin-only");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
 
-        // Masquer l’entrée Admin si non administrateur
-        adminItems.forEach(el => { if (!IS_ADMIN) el.style.display = "none"; });
-
-        const showSection = (id) => {
-          sections.forEach(sec => {
-            const active = sec.id === id;
-            sec.classList.toggle("active", active);
-            sec.hidden = !active;
-          });
-        };
-
-        btns.forEach(btn => {
-          btn.addEventListener("click", () => {
-            btns.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            const id = "section-" + btn.dataset.section;
-            showSection(id);
-          });
+        const sectionId = "section-" + btn.dataset.section;
+        sections.forEach(sec => {
+          sec.classList.toggle("active", sec.id === sectionId);
         });
-
-        // --- Carte de fidélité ---
-        const fidelityBtn = document.getElementById("fidelity-btn");
-        const container = document.getElementById("fidelity-card-container");
-        if (fidelityBtn && container) {
-          fidelityBtn.addEventListener("click", () => {
-            const email = {{ (me.email if me else 'inconnu')|tojson }};
-            const safeId = String(email).replace(/[^a-zA-Z0-9_-]/g, '-');
-            const img = document.createElement("img");
-            img.src = `/fidelite/${safeId}?t=${Date.now()}`;
-            img.alt = "Carte de fidélité";
-            img.style.maxWidth = "100%";
-            img.style.border = "1px solid #B45309";
-            img.style.borderRadius = "8px";
-            container.innerHTML = "";
-            container.appendChild(img);
-          });
-        }
       });
-    </script>
+    });
+
+    // Fidélité
+    const fidelityBtn = document.getElementById("fidelity-btn");
+    const container = document.getElementById("fidelity-card-container");
+    fidelityBtn.addEventListener("click", () => {
+      const memberId = "FID-TEST001";  
+      const img = document.createElement("img");
+      img.src = `/fidelite/${memberId}?t=${Date.now()}`;
+      img.style.maxWidth = "100%";
+      img.style.border = "1px solid #B45309";
+      img.style.borderRadius = "8px";
+      container.innerHTML = "";
+      container.appendChild(img);
+    });
+  });
+</script>
+
+        {% include 'footer.html' %}
+
   </body>
 </html>
