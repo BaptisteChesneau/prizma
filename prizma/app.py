@@ -1,10 +1,118 @@
 from flask import Flask, render_template, request, session, redirect, url_for
+import unicodedata
+import re
 
 app = Flask(__name__)
 app.secret_key = "dev-secret"  # requis si tu ajoutes du flash plus tard
 
 # --- stockage éphémère en mémoire (facultatif) ---
 USERS = []  # perdu à chaque redémarrage
+
+# --------- Libellés des catégories (ids utilisés dans products.html) ----------
+CATEGORY_LABELS = {
+    "maison": "Maison & Jardin",
+    "hightech": "Informatique & High-Tech",
+    "tel": "Téléphonie & Objets connectés",
+    "av": "Image & Son",
+    "jeux": "Jeux vidéo & Consoles",
+    "auto": "Auto, Moto & GPS",
+    "mode": "Mode & Beauté",
+    "bebe": "Bébé & Puériculture",
+    "jouets": "Jouets & Enfants",
+    "sport": "Sport & Loisirs",
+    "voyage": "Voyage & Bagagerie",
+    "animaux": "Animaux",
+    "bureau": "Bureau & Fournitures",
+    "supermarche": "Supermarché & Alimentation",
+}
+
+# --------- Mini-catalogue d'exemple (clé = slug de sous-catégorie) -----------
+# NB : c'est un exemple minimal pour démontrer la navigation. Tu peux enrichir.
+CATALOGUE = {
+    "maison": {
+        "meubles-decoration": [
+            {"ref": "MD-001", "name": "Table basse en chêne", "price": 129.99},
+            {"ref": "MD-002", "name": "Lampe sur pied scandinave", "price": 59.90},
+        ],
+        "linge-de-maison": [
+            {"ref": "LM-010", "name": "Parure de lit coton 140x200", "price": 39.90},
+        ],
+        "electromenager": [
+            {"ref": "EM-200", "name": "Bouilloire inox 1.7L", "price": 24.99},
+        ],
+        "bricolage-outillage": [
+            {"ref": "BO-111", "name": "Perceuse-visseuse 18V", "price": 89.00},
+        ],
+        "jardin-terrasse-piscine": [
+            {"ref": "JTP-005", "name": "Tuyau extensible 15m", "price": 29.90},
+        ],
+        "domotique-securite": [
+            {"ref": "DS-300", "name": "Prise connectée Wi-Fi", "price": 14.90},
+        ],
+        "cuisine-arts-de-la-table": [
+            {"ref": "CAT-021", "name": "Batterie de cuisine 5 pièces", "price": 79.00},
+        ],
+    },
+    "hightech": {
+        "ordinateurs-portables": [
+            {"ref": "OP-001", "name": "Laptop 15\" i5 / 16 Go / 512 Go", "price": 749.00},
+        ],
+        "ecrans-moniteurs": [
+            {"ref": "MON-027", "name": "Écran 27\" 144Hz", "price": 219.00},
+        ],
+        "imprimantes-scanners": [
+            {"ref": "IMP-010", "name": "Imprimante Wi-Fi multifonction", "price": 69.00},
+        ],
+        "accessoires-claviers-souris-sacs": [
+            {"ref": "ACC-501", "name": "Souris sans fil", "price": 14.90},
+        ],
+        "composants-peripheriques": [],
+        "tablettes-liseuses": [],
+    },
+    "tel": {
+        "smartphones": [
+            {"ref": "SP-900", "name": "Smartphone 5G 128 Go", "price": 259.00},
+        ],
+        "accessoires-telephone": [
+            {"ref": "TEL-030", "name": "Coque silicone (noir)", "price": 9.90},
+        ],
+        "montres-bracelets-connectes": [
+            {"ref": "WB-070", "name": "Montre connectée étanche", "price": 49.90},
+        ],
+        "casques-ecouteurs": [
+            {"ref": "AUD-100", "name": "Écouteurs Bluetooth", "price": 29.90},
+        ],
+        "batteries-chargeurs": [],
+    },
+    "av": {
+        "televiseurs": [{"ref": "TV-050", "name": "TV 55\" 4K HDR", "price": 449.00}],
+        "home-cinema-barres-de-son": [],
+        "videoprojecteurs": [],
+        "appareils-photo-cameras": [],
+        "drones-accessoires": [],
+    },
+    # Tu peux compléter les autres catégories à ton rythme :
+    "jeux": {},
+    "auto": {},
+    "mode": {},
+    "bebe": {},
+    "jouets": {},
+    "sport": {},
+    "voyage": {},
+    "animaux": {},
+    "bureau": {},
+    "supermarche": {},
+}
+
+# --------- Utilitaire : slugify (cohérent avec le JS côté front) -------------
+def slugify(s: str) -> str:
+    s = unicodedata.normalize("NFD", s)
+    s = s.encode("ascii", "ignore").decode("ascii")
+    s = s.lower()
+    s = s.replace("&", " ")
+    s = re.sub(r"[^a-z0-9]+", "-", s)
+    s = s.strip("-")
+    return s
 
 
 # Accueil = home.html
@@ -18,7 +126,7 @@ def hello():
     return render_template("hello.html")
 
 
-# (Facultatif) aperçu des fragments si tu veux les voir seuls
+# (Facultatif) aperçu des fragments
 @app.get("/header")
 def header_fragment():
     return render_template("header.html")
@@ -57,14 +165,18 @@ def signup_create():
 
     # Validations simples
     errors = []
-    if not data["prenom"]: errors.append("Le prénom est requis.")
-    if not data["nom"]: errors.append("Le nom est requis.")
+    if not data["prenom"]:
+        errors.append("Le prénom est requis.")
+    if not data["nom"]:
+        errors.append("Le nom est requis.")
     if not data["email"] or "@" not in data["email"]:
         errors.append("L’adresse e-mail n’est pas valide.")
-    if not data["adresse"]: errors.append("L’adresse postale est requise.")
+    if not data["adresse"]:
+        errors.append("L’adresse postale est requise.")
     if not (data["code_postal"].isdigit() and len(data["code_postal"]) == 5):
         errors.append("Le code postal doit contenir 5 chiffres.")
-    if not data["ville"]: errors.append("La ville est requise.")
+    if not data["ville"]:
+        errors.append("La ville est requise.")
     if not data["telephone"]:
         errors.append("Le numéro de téléphone est requis.")
 
@@ -79,12 +191,10 @@ def signup_create():
 # -------- Legacy redirects (/auth → /sign-up) --------
 @app.get("/auth")
 def auth_legacy_get():
-    # redirection permanente pour l'ancien chemin
     return redirect(url_for("signup"), code=301)
 
 @app.post("/auth/create")
 def auth_legacy_post():
-    # conserve la méthode POST et le body
     return redirect(url_for("signup_create"), code=307)
 
 
@@ -185,32 +295,65 @@ def compte_update():
     }
 
     errors = []
-    if not updated["prenom"]: errors.append("Le prénom est requis.")
-    if not updated["nom"]: errors.append("Le nom est requis.")
-    if not updated["adresse"]: errors.append("L’adresse postale est requise.")
+    if not updated["prenom"]:
+        errors.append("Le prénom est requis.")
+    if not updated["nom"]:
+        errors.append("Le nom est requis.")
+    if not updated["adresse"]:
+        errors.append("L’adresse postale est requise.")
     if not (updated["code_postal"].isdigit() and len(updated["code_postal"]) == 5):
         errors.append("Le code postal doit contenir 5 chiffres.")
-    if not updated["ville"]: errors.append("La ville est requise.")
+    if not updated["ville"]:
+        errors.append("La ville est requise.")
     if not updated["telephone"]:
         errors.append("Le numéro de téléphone est requis.")
 
     if errors:
-        # Renvoyer le template avec les champs saisis et les erreurs
         me_view = {**me, **updated}
         return render_template("account.html", me=me_view, errors=errors, success=False)
 
-    # Met à jour USERS (en mémoire) puis la session
     _update_user_store(me["email"], updated)
     session["user"] = {**session["user"], **updated}
 
     return render_template("account.html", me=session["user"], errors=[], success=True)
 
+
+# -------- Pages catalogue dynamiques --------
+@app.get("/catalogue/<category>/<subcat>")
+def catalogue(category, subcat):
+    """
+    category = id de section (ex: 'maison', 'hightech', ...)
+    subcat   = slug de la sous-catégorie (ex: 'meubles-decoration')
+    """
+    cat_items = CATALOGUE.get(category, {})
+    # tente résolution directe puis fallback via slugify
+    items = cat_items.get(subcat)
+    if items is None:
+        items = cat_items.get(slugify(subcat))
+    if items is None:
+        items = []  # sous-catégorie inconnue → page vide mais valide
+
+    cat_label = CATEGORY_LABELS.get(category, category.title())
+    # sous-label "humain"
+    sub_label = subcat.replace("-", " ").capitalize()
+
+    return render_template(
+        "catalogue.html",
+        category=category,
+        subcat=subcat,
+        cat_label=cat_label,
+        sub_label=sub_label,
+        items=items
+    )
+
+
+# -------- Contact --------
 @app.get("/contact")
 def contact():
     return render_template("contact.html")
 
-# -------- Stubs de navigation --------
 
+# -------- Stubs de navigation --------
 @app.get("/rgpd")
 def rgpd():
     return "RGPD — placeholder"

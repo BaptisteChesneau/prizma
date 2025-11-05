@@ -952,3 +952,34 @@ html { scroll-behavior: smooth; }
 @media (max-width: 420px){
   .contact{ padding: 0 12px; }
 }
+
+/* =======================================================
+   13. Catalogue (liste produits)
+======================================================= */
+
+/* 13.01 Variables */
+:root{
+  --cat-maxw: 1200px;
+  --cat-border: #111111;
+  --cat-radius: 12px;
+}
+
+/* 13.02 Layout */
+.catalogue{ max-width: var(--cat-maxw); margin: 26px auto 64px; padding: 0 16px; }
+.cat-header{ margin-bottom: 12px; }
+.cat-breadcrumb{ display: flex; align-items: center; gap: 6px; color: #555; }
+.cat-crumb{ text-decoration: none; color: inherit; }
+.cat-crumb.is-current{ color: #111; }
+.cat-title{ margin: 6px 0 2px; }
+.cat-sub{ margin: 0 0 12px; color: #666; }
+
+/* 13.03 Grid */
+.cat-grid{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.cat-card.card{ padding: 14px; }
+.cat-name{ margin: 0 0 4px; font-size: 1.05rem; }
+.cat-ref{ margin: 0 0 8px; color: #666; }
+.cat-price{ margin: 0 0 10px; font-weight: 700; }
+.cat-actions .btn{ min-height: 40px; }
+
+/* 13.04 Responsive */
+@media (max-width: 900px){ .cat-grid{ grid-template-columns: 1fr; } }
