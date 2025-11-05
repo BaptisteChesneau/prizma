@@ -405,6 +405,27 @@ body {
   padding: 7px 10px; border-radius: 10px; background: #fff;
 }
 
+/* 05.04b Sous-catégories cliquables (liens) */
+.subcats .pill-link:link,
+.subcats .pill-link:visited{
+  color: #111;                 /* noir */
+  text-decoration: none;       /* pas de soulignement */
+  display: inline-block;       /* garde le padding/border */
+  cursor: pointer;
+}
+.subcats .pill-link:hover{
+  background: linear-gradient(180deg, var(--cta-top), var(--cta-bot)); /* orange */
+  color: #fff;
+  border-color: var(--prod-border);
+  transform: translateY(-2px);
+  box-shadow: 0 2px 0 rgba(0,0,0,.12);
+  text-decoration: none;
+}
+.subcats .pill-link:focus-visible{
+  outline: 2px solid var(--prod-border);
+  outline-offset: 2px;
+}
+
 /* 05.05 Guides */
 .guide{ border: 1px solid var(--prod-border); border-radius: 10px; background: #fff; }
 .guide + .guide{ margin-top: 10px; }

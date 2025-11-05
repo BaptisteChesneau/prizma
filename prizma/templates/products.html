@@ -45,13 +45,13 @@
           <section id="maison" class="prod-section card" aria-labelledby="h-maison">
             <h2 id="h-maison" class="prod-h2">Maison &amp; Jardin</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Meubles & Décoration</a>
-              <a class="pill pill-link" href="#!">Linge de maison</a>
-              <a class="pill pill-link" href="#!">Cuisine & Arts de la table</a>
-              <a class="pill pill-link" href="#!">Électroménager</a>
-              <a class="pill pill-link" href="#!">Bricolage & Outillage</a>
-              <a class="pill pill-link" href="#!">Jardin, terrasse & piscine</a>
-              <a class="pill pill-link" href="#!">Domotique & Sécurité</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='maison', subcat='meubles-decoration') }}">Meubles & Décoration</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='maison', subcat='linge-de-maison') }}">Linge de maison</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='maison', subcat='cuisine-arts-de-la-table') }}">Cuisine & Arts de la table</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='maison', subcat='electromenager') }}">Électroménager</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='maison', subcat='bricolage-outillage') }}">Bricolage & Outillage</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='maison', subcat='jardin-terrasse-piscine') }}">Jardin, terrasse & piscine</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='maison', subcat='domotique-securite') }}">Domotique & Sécurité</a>
             </div>
           </section>
 
@@ -59,13 +59,13 @@
           <section id="hightech" class="prod-section card" aria-labelledby="h-hightech">
             <h2 id="h-hightech" class="prod-h2">Informatique &amp; High-Tech</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Ordinateurs portables</a>
-              <a class="pill pill-link" href="#!">PC de bureau</a>
-              <a class="pill pill-link" href="#!">Composants & périphériques</a>
-              <a class="pill pill-link" href="#!">Tablettes & liseuses</a>
-              <a class="pill pill-link" href="#!">Écrans & moniteurs</a>
-              <a class="pill pill-link" href="#!">Imprimantes & scanners</a>
-              <a class="pill pill-link" href="#!">Accessoires (claviers, souris, sacs…)</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='hightech', subcat='ordinateurs-portables') }}">Ordinateurs portables</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='hightech', subcat='pc-de-bureau') }}">PC de bureau</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='hightech', subcat='composants-peripheriques') }}">Composants & périphériques</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='hightech', subcat='tablettes-liseuses') }}">Tablettes & liseuses</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='hightech', subcat='ecrans-moniteurs') }}">Écrans & moniteurs</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='hightech', subcat='imprimantes-scanners') }}">Imprimantes & scanners</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='hightech', subcat='accessoires-claviers-souris-sacs') }}">Accessoires (claviers, souris, sacs…)</a>
             </div>
           </section>
 
@@ -73,11 +73,11 @@
           <section id="tel" class="prod-section card" aria-labelledby="h-tel">
             <h2 id="h-tel" class="prod-h2">Téléphonie &amp; Objets connectés</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Smartphones</a>
-              <a class="pill pill-link" href="#!">Accessoires téléphone</a>
-              <a class="pill pill-link" href="#!">Montres & bracelets connectés</a>
-              <a class="pill pill-link" href="#!">Casques & écouteurs</a>
-              <a class="pill pill-link" href="#!">Batteries & chargeurs</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='tel', subcat='smartphones') }}">Smartphones</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='tel', subcat='accessoires-telephone') }}">Accessoires téléphone</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='tel', subcat='montres-bracelets-connectes') }}">Montres & bracelets connectés</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='tel', subcat='casques-ecouteurs') }}">Casques & écouteurs</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='tel', subcat='batteries-chargeurs') }}">Batteries & chargeurs</a>
             </div>
           </section>
 
@@ -85,11 +85,11 @@
           <section id="av" class="prod-section card" aria-labelledby="h-av">
             <h2 id="h-av" class="prod-h2">Image &amp; Son</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Téléviseurs</a>
-              <a class="pill pill-link" href="#!">Home cinéma & barres de son</a>
-              <a class="pill pill-link" href="#!">Vidéoprojecteurs</a>
-              <a class="pill pill-link" href="#!">Appareils photo & caméras</a>
-              <a class="pill pill-link" href="#!">Drones & accessoires</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='av', subcat='televiseurs') }}">Téléviseurs</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='av', subcat='home-cinema-barres-de-son') }}">Home cinéma & barres de son</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='av', subcat='videoprojecteurs') }}">Vidéoprojecteurs</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='av', subcat='appareils-photo-cameras') }}">Appareils photo & caméras</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='av', subcat='drones-accessoires') }}">Drones & accessoires</a>
             </div>
           </section>
 
@@ -97,10 +97,10 @@
           <section id="jeux" class="prod-section card" aria-labelledby="h-jeux">
             <h2 id="h-jeux" class="prod-h2">Jeux vidéo &amp; Consoles</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Consoles (PS5, Xbox, Nintendo…)</a>
-              <a class="pill pill-link" href="#!">Jeux vidéo</a>
-              <a class="pill pill-link" href="#!">Accessoires gaming</a>
-              <a class="pill pill-link" href="#!">PC gamer & périphériques</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='jeux', subcat='consoles') }}">Consoles (PS5, Xbox, Nintendo…)</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='jeux', subcat='jeux-video') }}">Jeux vidéo</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='jeux', subcat='accessoires-gaming') }}">Accessoires gaming</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='jeux', subcat='pc-gamer-peripheriques') }}">PC gamer & périphériques</a>
             </div>
           </section>
 
@@ -108,11 +108,11 @@
           <section id="auto" class="prod-section card" aria-labelledby="h-auto">
             <h2 id="h-auto" class="prod-h2">Auto, Moto &amp; GPS</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Pièces auto & moto</a>
-              <a class="pill pill-link" href="#!">Accessoires intérieurs / extérieurs</a>
-              <a class="pill pill-link" href="#!">Pneus & jantes</a>
-              <a class="pill pill-link" href="#!">GPS & caméras embarquées</a>
-              <a class="pill pill-link" href="#!">Produits d’entretien</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='auto', subcat='pieces-auto-moto') }}">Pièces auto & moto</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='auto', subcat='accessoires-interieurs-exterieurs') }}">Accessoires intérieurs / extérieurs</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='auto', subcat='pneus-jantes') }}">Pneus & jantes</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='auto', subcat='gps-cameras-embarquees') }}">GPS & caméras embarquées</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='auto', subcat='produits-entretien') }}">Produits d’entretien</a>
             </div>
           </section>
 
@@ -120,12 +120,12 @@
           <section id="mode" class="prod-section card" aria-labelledby="h-mode">
             <h2 id="h-mode" class="prod-h2">Mode &amp; Beauté</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Vêtements homme / femme / enfant</a>
-              <a class="pill pill-link" href="#!">Chaussures</a>
-              <a class="pill pill-link" href="#!">Montres & bijoux</a>
-              <a class="pill pill-link" href="#!">Maquillage & soins</a>
-              <a class="pill pill-link" href="#!">Parfums</a>
-              <a class="pill pill-link" href="#!">Hygiène & bien-être</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='mode', subcat='vetements-homme-femme-enfant') }}">Vêtements homme / femme / enfant</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='mode', subcat='chaussures') }}">Chaussures</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='mode', subcat='montres-bijoux') }}">Montres & bijoux</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='mode', subcat='maquillage-soins') }}">Maquillage & soins</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='mode', subcat='parfums') }}">Parfums</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='mode', subcat='hygiene-bien-etre') }}">Hygiène & bien-être</a>
             </div>
           </section>
 
@@ -133,11 +133,11 @@
           <section id="bebe" class="prod-section card" aria-labelledby="h-bebe">
             <h2 id="h-bebe" class="prod-h2">Bébé &amp; Puériculture</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Poussettes & sièges auto</a>
-              <a class="pill pill-link" href="#!">Alimentation & repas bébé</a>
-              <a class="pill pill-link" href="#!">Jouets d’éveil</a>
-              <a class="pill pill-link" href="#!">Lits & mobilier bébé</a>
-              <a class="pill pill-link" href="#!">Sécurité et hygiène</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='bebe', subcat='poussettes-sieges-auto') }}">Poussettes & sièges auto</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='bebe', subcat='alimentation-repas-bebe') }}">Alimentation & repas bébé</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='bebe', subcat='jouets-deveil') }}">Jouets d’éveil</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='bebe', subcat='lits-mobilier-bebe') }}">Lits & mobilier bébé</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='bebe', subcat='securite-hygiene') }}">Sécurité et hygiène</a>
             </div>
           </section>
 
@@ -145,11 +145,11 @@
           <section id="jouets" class="prod-section card" aria-labelledby="h-jouets">
             <h2 id="h-jouets" class="prod-h2">Jouets &amp; Enfants</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Jeux éducatifs</a>
-              <a class="pill pill-link" href="#!">Figurines & poupées</a>
-              <a class="pill pill-link" href="#!">Jeux de société</a>
-              <a class="pill pill-link" href="#!">Véhicules & circuits</a>
-              <a class="pill pill-link" href="#!">Loisirs créatifs</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='jouets', subcat='jeux-educatifs') }}">Jeux éducatifs</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='jouets', subcat='figurines-poupees') }}">Figurines & poupées</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='jouets', subcat='jeux-de-societe') }}">Jeux de société</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='jouets', subcat='vehicules-circuits') }}">Véhicules & circuits</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='jouets', subcat='loisirs-creatifs') }}">Loisirs créatifs</a>
             </div>
           </section>
 
@@ -157,11 +157,11 @@
           <section id="sport" class="prod-section card" aria-labelledby="h-sport">
             <h2 id="h-sport" class="prod-h2">Sport &amp; Loisirs</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Fitness & musculation</a>
-              <a class="pill pill-link" href="#!">Sports d’extérieur</a>
-              <a class="pill pill-link" href="#!">Sports d’équipe</a>
-              <a class="pill pill-link" href="#!">Vélo, trottinette & accessoires</a>
-              <a class="pill pill-link" href="#!">Natation & sports nautiques</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='sport', subcat='fitness-musculation') }}">Fitness & musculation</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='sport', subcat='sports-exterieur') }}">Sports d’extérieur</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='sport', subcat='sports-equipe') }}">Sports d’équipe</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='sport', subcat='velo-trottinette-accessoires') }}">Vélo, trottinette & accessoires</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='sport', subcat='natation-sports-nautiques') }}">Natation & sports nautiques</a>
             </div>
           </section>
 
@@ -169,9 +169,9 @@
           <section id="voyage" class="prod-section card" aria-labelledby="h-voyage">
             <h2 id="h-voyage" class="prod-h2">Voyage &amp; Bagagerie</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Valises & sacs de voyage</a>
-              <a class="pill pill-link" href="#!">Sacs à dos</a>
-              <a class="pill pill-link" href="#!">Accessoires de voyage</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='voyage', subcat='valises-sacs-de-voyage') }}">Valises & sacs de voyage</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='voyage', subcat='sacs-a-dos') }}">Sacs à dos</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='voyage', subcat='accessoires-de-voyage') }}">Accessoires de voyage</a>
             </div>
           </section>
 
@@ -179,10 +179,10 @@
           <section id="animaux" class="prod-section card" aria-labelledby="h-animaux">
             <h2 id="h-animaux" class="prod-h2">Animaux</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Chiens</a>
-              <a class="pill pill-link" href="#!">Chats</a>
-              <a class="pill pill-link" href="#!">Rongeurs, poissons, oiseaux</a>
-              <a class="pill pill-link" href="#!">Alimentation & accessoires</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='animaux', subcat='chiens') }}">Chiens</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='animaux', subcat='chats') }}">Chats</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='animaux', subcat='rongeurs-poissons-oiseaux') }}">Rongeurs, poissons, oiseaux</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='animaux', subcat='alimentation-accessoires') }}">Alimentation & accessoires</a>
             </div>
           </section>
 
@@ -190,9 +190,9 @@
           <section id="bureau" class="prod-section card" aria-labelledby="h-bureau">
             <h2 id="h-bureau" class="prod-h2">Bureau &amp; Fournitures</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Mobilier de bureau</a>
-              <a class="pill pill-link" href="#!">Fournitures scolaires & bureautiques</a>
-              <a class="pill pill-link" href="#!">Matériel d’impression</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='bureau', subcat='mobilier-de-bureau') }}">Mobilier de bureau</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='bureau', subcat='fournitures-scolaires-bureautiques') }}">Fournitures scolaires & bureautiques</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='bureau', subcat='materiel-dimpression') }}">Matériel d’impression</a>
             </div>
           </section>
 
@@ -200,10 +200,10 @@
           <section id="supermarche" class="prod-section card" aria-labelledby="h-supermarche">
             <h2 id="h-supermarche" class="prod-h2">Supermarché &amp; Alimentation</h2>
             <div class="subcats">
-              <a class="pill pill-link" href="#!">Épicerie</a>
-              <a class="pill pill-link" href="#!">Boissons</a>
-              <a class="pill pill-link" href="#!">Produits bio</a>
-              <a class="pill pill-link" href="#!">Produits d’entretien</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='supermarche', subcat='epicerie') }}">Épicerie</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='supermarche', subcat='boissons') }}">Boissons</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='supermarche', subcat='produits-bio') }}">Produits bio</a>
+              <a class="pill pill-link" href="{{ url_for('catalogue', category='supermarche', subcat='produits-entretien') }}">Produits d’entretien</a>
             </div>
           </section>
 
@@ -302,7 +302,7 @@
 
     {% include 'footer.html' %}
 
-    <!-- JS intégré : animations + nav active + ancrage lissé + accordéon + redirection pills -->
+    <!-- JS intégré : animations + nav active + ancrage lissé + accordéon -->
     <script>
       (function () {
         'use strict';
@@ -363,7 +363,7 @@
           });
         });
 
-        // 4) Si on arrive avec un hash, corrige la position après le chargement
+        // 4) Hash arrivé direct
         window.addEventListener('load', () => {
           if (location.hash) {
             const id = location.hash.slice(1);
@@ -375,7 +375,7 @@
           }
         });
 
-        // 5) Accordéon : un seul guide ouvert à la fois
+        // 5) Accordéon : un seul guide ouvert
         const guides = document.querySelectorAll('details.guide');
         guides.forEach((g) => {
           g.addEventListener('toggle', () => {
@@ -385,24 +385,7 @@
           });
         });
 
-        // 6) Redirection quand on clique une sous-catégorie (pill)
-        function slugify(s){
-          return s.toLowerCase()
-            .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
-            .replace(/&/g,' ')
-            .replace(/[^a-z0-9]+/g,'-')
-            .replace(/(^-|-$)/g,'');
-        }
-        document.querySelectorAll('.prod-section .pill-link').forEach(el=>{
-          el.addEventListener('click', (e)=>{
-            e.preventDefault();
-            const section = el.closest('.prod-section');
-            if(!section) return;
-            const category = section.id;                 // ex: maison
-            const sub = slugify(el.textContent);         // ex: meubles-decoration
-            window.location.href = `/catalogue/${category}/${sub}`;
-          });
-        });
+        // (Plus de redirection JS des pills : elles ont des href réels)
       })();
     </script>
   </body>
