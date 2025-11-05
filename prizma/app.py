@@ -354,12 +354,18 @@ def catalogue(category, subcat):
 def contact():
     return render_template("contact.html")
 
+@app.get("/rgpd", endpoint="rgpd")
+def rgpd_page():
+    # Si tu as un template rgpd.html :
+    # return render_template("rgpd.html")
+    # Sinon, placeholder temporaire :
+    return "RGPD — placeholder"
 
-@app.route("/mentions-legales/")
-def legal_notices():
+@app.get("/mentions-legales", endpoint="mentions_legales")
+def mentions_legales():
     return render_template("legal_notices.html")
 
-@app.route("/politique-cookies/")
+@app.get("/cookies", endpoint="cookies_policy")
 def cookies_policy():
     return render_template("cookies_policy.html")
 
