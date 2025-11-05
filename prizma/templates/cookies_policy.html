@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Politique de cookies — Prizma</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <main class="legal">
+      <section class="legal-wrap card">
+        <h1 class="legal-title">Politique de cookies</h1>
+
+        <p class="legal-text">
+          Le site <strong>www.prizma.fr</strong> utilise des cookies afin d’assurer son bon fonctionnement et d’améliorer l’expérience utilisateur.
+          Cette politique a pour objectif de vous informer sur la manière dont nous utilisons ces cookies et sur les options dont vous disposez.
+        </p>
+
+        <h2 class="legal-h2">Qu’est-ce qu’un cookie&nbsp;?</h2>
+        <p class="legal-text">
+          Un cookie est un petit fichier texte enregistré sur votre appareil (ordinateur, tablette, smartphone) lorsque vous consultez un site web.
+          Il permet notamment de mémoriser vos préférences de navigation ou de recueillir des statistiques anonymes.
+        </p>
+
+        <h2 class="legal-h2">Types de cookies utilisés</h2>
+        <p class="legal-text">
+          Le site <strong>Prizma</strong> utilise uniquement des cookies essentiels et de mesure d’audience.
+          Aucune donnée personnelle n’est collectée à des fins publicitaires.
+        </p>
+        <ul class="legal-list">
+          <li><strong>Cookies techniques&nbsp;:</strong> nécessaires au bon fonctionnement du site (accès sécurisé, navigation, préférences de langue).</li>
+          <li><strong>Cookies de performance&nbsp;:</strong> permettent d’analyser la fréquentation et l’utilisation du site afin d’en améliorer le contenu.</li>
+        </ul>
+
+        <h2 class="legal-h2">Gestion des cookies</h2>
+        <p class="legal-text">
+          Vous pouvez choisir d’accepter ou de refuser tout ou partie des cookies via le paramétrage de votre navigateur internet.
+          Toutefois, la désactivation de certains cookies peut affecter le bon fonctionnement du site.
+        </p>
+
+        <h2 class="legal-h2">Modification de la politique</h2>
+        <p class="legal-text">
+          <strong>Prizma</strong> se réserve le droit de modifier la présente politique de cookies à tout moment afin de refléter les évolutions légales ou techniques.
+          Nous vous invitons à la consulter régulièrement.
+        </p>
+
+        <h2 class="legal-h2">Contact</h2>
+        <p class="legal-text">
+          Pour toute question relative à l’utilisation des cookies sur notre site, vous pouvez nous contacter à&nbsp;:<br />
+          <a href="mailto:contact@prizma.fr" class="legal-link">contact@prizma.fr</a>
+        </p>
+      </section>
+    </main>
+
+    {% include 'footer.html' %}
+  </body>
+</html>

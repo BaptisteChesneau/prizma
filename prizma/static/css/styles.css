@@ -1023,3 +1023,119 @@ html { scroll-behavior: smooth; }
 
 /* 13.04 Responsive */
 @media (max-width: 900px){ .cat-grid{ grid-template-columns: 1fr; } }
+
+/* =======================================================
+   14. Pages légales (Mentions légales / Cookies)
+======================================================= */
+
+/* Mentions légales */
+.legal_notices-container {
+  background-color: #fff;
+  padding: 3rem 2rem;
+}
+.legal_notices-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.legal_notices-h1 {
+  font-weight: 700;
+  font-size: 2.25rem;
+  color: #111;
+  margin-bottom: 2rem;
+}
+.legal_notices-h2 {
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #111;
+  margin: 2.25rem 0 1rem;
+}
+.legal_notices-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  text-align: justify;
+}
+.legal_notices-link {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+.legal_notices-link:hover { text-decoration: underline; }
+
+/* Cookies */
+.cookies_policy-container {
+  background-color: #fff;
+  padding: 3rem 2rem;
+}
+.cookies_policy-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.cookies_policy-h1 {
+  font-weight: 700;
+  font-size: 2.25rem;
+  color: #111;
+  margin-bottom: 2rem;
+}
+.cookies_policy-h2 {
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #111;
+  margin: 2.25rem 0 1rem;
+}
+.cookies_policy-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  text-align: justify;
+}
+.cookies_policy-link {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+.cookies_policy-link:hover { text-decoration: underline; }
+.cookies_policy-list {
+  margin: 1rem 0 1.5rem 1.25rem;
+  line-height: 1.6;
+}
+.cookies_policy-list li { margin-bottom: .5rem; }
+
+/* =======================================================
+   11.c Account — compléments classes utilitaires
+   (si ton HTML utilise encore .account-input / .account-save-btn / .account-fidelity-btn)
+======================================================= */
+.account-input{
+  width: 100%;
+  border: 1px solid var(--account-border, #111);
+  border-radius: var(--account-radius, 12px);
+  padding: 10px 12px;
+  background: #fff;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.account-input:focus-visible{
+  outline: 2px solid var(--account-border, #111);
+  outline-offset: 2px;
+}
+
+.account-save-btn{
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 44px; padding: 0 18px;
+  border-radius: 10px; font-weight: 600; border: 1px solid var(--account-border, #111);
+  color: var(--auth-cta-text, #fff);
+  background: linear-gradient(180deg, var(--auth-cta-top, var(--cta-top, #cc6a12)), var(--auth-cta-bot, var(--cta-bot, #a5530c)));
+  transition: opacity .2s ease, transform .08s ease;
+}
+.account-save-btn:hover{ opacity: .95; transform: translateY(-1px); }
+
+.account-fidelity-btn{
+  display: inline-flex; align-items: center; gap: .5rem;
+  min-height: 40px; padding: 0 .9rem;
+  border-radius: 8px; font-weight: 600;
+  border: 1px solid var(--account-border, #111);
+  color: var(--auth-cta-text, #fff);
+  background: linear-gradient(180deg, var(--auth-cta-top, var(--cta-top, #cc6a12)), var(--auth-cta-bot, var(--cta-bot, #a5530c)));
+  transition: opacity .2s ease, transform .08s ease;
+}
+.account-fidelity-btn:hover{ opacity: .95; transform: translateY(-1px); }
+
+/* Optionnel — alias si tu utilises encore .account-container comme wrapper */
+.account-container{ background:#F8FAFC; }
