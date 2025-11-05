@@ -1,42 +1,30 @@
-<!doctype html>
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Header — Prizma</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
-  </head>
-  <body>
-    <!-- Page vide, uniquement le footer en bas -->
-    <footer class="site-footer" role="contentinfo">
-      <div class="ftr-wrap">
-        <!-- Colonne gauche : Réseaux sociaux (vertical) -->
-        <div class="ftr-social">
-          <a class="ftr-social-link" href="#" aria-label="TikTok">
-            <img class="ftr-icon" src="/static/img/tiktok.svg" alt="TikTok">
-          </a>
-          <a class="ftr-social-link" href="#" aria-label="Instagram">
-            <img class="ftr-icon" src="/static/img/instagram.svg" alt="Instagram">
-          </a>
-          <a class="ftr-social-link" href="#" aria-label="LinkedIn">
-            <img class="ftr-icon" src="/static/img/linkedin.svg" alt="LinkedIn">
-          </a>
-        </div>
+<footer class="site-footer" role="contentinfo">
+  <div class="ftr-wrap">
+    <!-- Colonne gauche : Réseaux sociaux -->
+    <div class="ftr-social">
+      <a class="ftr-social-link" href="https://www.tiktok.com/@prizma" target="_blank" rel="noopener" aria-label="TikTok">
+        <img class="ftr-icon" src="{{ url_for('static', filename='img/tiktok.svg') }}" alt="">
+      </a>
+      <a class="ftr-social-link" href="https://www.instagram.com/prizma" target="_blank" rel="noopener" aria-label="Instagram">
+        <img class="ftr-icon" src="{{ url_for('static', filename='img/instagram.svg') }}" alt="">
+      </a>
+      <a class="ftr-social-link" href="https://www.linkedin.com/company/prizma" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <img class="ftr-icon" src="{{ url_for('static', filename='img/linkedin.svg') }}" alt="">
+      </a>
+    </div>
 
-        <!-- Colonne centre : Adresse / Téléphone / Email -->
-        <div class="ftr-info">
-          <p class="ftr-line">6 boulevard béranger de gourde, 11450 Rame</p>
-          <p class="ftr-line"><a class="ftr-link" href="tel:0102030405">0102030405</a></p>
-          <p class="ftr-line"><a class="ftr-link" href="mailto:contact.Prizma@gmail.com">contact.Prizma@gmail.com</a></p>
-        </div>
+    <!-- Colonne centre : Adresse / Téléphone / Email -->
+    <div class="ftr-info">
+      <p class="ftr-line">6 boulevard Béranger de Gourde, 11450 Rame</p>
+      <p class="ftr-line"><a class="ftr-link" href="tel:0102030405">0102030405</a></p>
+      <p class="ftr-line"><a class="ftr-link" href="mailto:contact.Prizma@gmail.com">contact.Prizma@gmail.com</a></p>
+    </div>
 
-        <!-- Colonne droite : Liens légaux (vertical) -->
-        <div class="ftr-legal">
-          <a class="ftr-legal-link" href="/rgpd">RGPD</a>
-          <a class="ftr-legal-link" href="/mentions-legales">Mentions légales</a>
-          <a class="ftr-legal-link" href="/cookies">Cookies</a>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
+    <!-- Colonne droite : Liens légaux -->
+    <div class="ftr-legal">
+      <a class="ftr-legal-link" href="{{ url_for('rgpd') }}">RGPD</a>
+      <a class="ftr-legal-link" href="{{ url_for('mentions') }}">Mentions légales</a>
+      <a class="ftr-legal-link" href="{{ url_for('cookies') }}">Cookies</a>
+    </div>
+  </div>
+</footer>

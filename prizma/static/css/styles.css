@@ -195,10 +195,29 @@ body {
   column-gap: 32px;
 }
 
-/* 03.03 Réseaux sociaux */
-.ftr-social{ display: flex; flex-direction: column; gap: var(--ftr-gap); }
-.ftr-icon{ width: var(--ftr-icon-size); height: var(--ftr-icon-size); display: block; }
-.ftr-social-link{ display: inline-block; line-height: 0; }
+/* 03.03 Interactions & accessibilité (icônes réseaux) */
+.ftr-social-link{
+  border: 1px solid var(--ftr-border);
+  border-radius: 12px;
+  padding: 6px;
+  background: #fff;
+  transition: transform .08s ease, background-color .15s ease, box-shadow .15s ease;
+}
+.ftr-social-link:hover{
+  background: #fafafa;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 0 rgba(0,0,0,.10);
+}
+.ftr-social-link:active{ transform: translateY(0); }
+.ftr-social-link:focus-visible{
+  outline: 2px solid var(--ftr-border);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+/* Optionnel : contrainte de taille homogène si icônes variables */
+.ftr-icon{ width: var(--ftr-icon-size); height: var(--ftr-icon-size); display:block; }
+
 
 /* 03.04 Infos centre */
 .ftr-info{ display: flex; flex-direction: column; align-items: center; gap: var(--ftr-vgap); text-align: center; }
