@@ -22,10 +22,11 @@
         <p class="cat-sub">{{ items|length }} produit(s) trouvés</p>
       </header>
 
-      {# Images mappées côté template par référence produit #}
+      {# Image par défaut si la réf n’est pas mappée #}
       {% set placeholder = url_for('static', filename='img/placeholder.webp') %}
+
+      {# MAPPING IMAGES PAR RÉFÉRENCE (à compléter selon tes fichiers) #}
       {% set IMG = {
-        # -- Exemples (à compléter avec tes refs/répertoires) --
         'HT-LAP-001': url_for('static', filename='img/catalogue/hightech/ultrabook.jpg'),
         'HT-LAP-002': url_for('static', filename='img/catalogue/hightech/laptop-pro.jpg'),
         'HT-SCR-001': url_for('static', filename='img/catalogue/hightech/screen-27.jpg'),
