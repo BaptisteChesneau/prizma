@@ -22,10 +22,28 @@
         <p class="cat-sub">{{ items|length }} produit(s) trouvés</p>
       </header>
 
+      {# Images mappées côté template par référence produit #}
+      {% set placeholder = url_for('static', filename='img/placeholder.webp') %}
+      {% set IMG = {
+        # -- Exemples (à compléter avec tes refs/répertoires) --
+        'HT-LAP-001': url_for('static', filename='img/catalogue/hightech/ultrabook.jpg'),
+        'HT-LAP-002': url_for('static', filename='img/catalogue/hightech/laptop-pro.jpg'),
+        'HT-SCR-001': url_for('static', filename='img/catalogue/hightech/screen-27.jpg'),
+        'MS-DEC-001': url_for('static', filename='img/catalogue/maison/fauteuil.jpg')
+      } %}
+
       {% if items %}
         <section class="cat-grid" aria-label="Liste des produits">
           {% for p in items %}
             <article class="cat-card card">
+              <img
+                class="cat-thumb"
+                src="{{ IMG.get(p.ref, placeholder) }}"
+                alt="{{ p.name }}"
+                title="{{ p.name }}"
+                loading="lazy"
+                decoding="async"
+              >
               <div class="cat-body">
                 <h3 class="cat-name">{{ p.name }}</h3>
                 <p class="cat-ref">Réf. <code>{{ p.ref }}</code></p>
