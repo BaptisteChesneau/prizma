@@ -205,11 +205,11 @@ def compte_update():
 
     return render_template("account.html", me=session["user"], errors=[], success=True)
 
-
-# -------- Stubs de navigation --------
 @app.get("/contact")
 def contact():
-    return "Contact — placeholder"
+    return render_template("contact.html")
+
+# -------- Stubs de navigation --------
 
 @app.get("/rgpd")
 def rgpd():

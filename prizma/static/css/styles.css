@@ -911,3 +911,44 @@ html { scroll-behavior: smooth; }
 @media (max-width: 720px){
   .account .form-grid{ grid-template-columns: 1fr; }
 }
+
+/* =======================================================
+   12. Contact (Tally)
+======================================================= */
+
+/* 12.01 Variables */
+:root{
+  --contact-maxw: 820px;
+  --contact-border: #111111;   /* bordure fine, cohérente avec le reste */
+  --contact-radius: 12px;
+}
+
+/* 12.02 Layout */
+.contact{
+  max-width: var(--contact-maxw);
+  margin: 28px auto 64px;
+  padding: 0 16px;
+}
+.contact-wrap.card{
+  border: 1px solid var(--contact-border);
+  border-radius: var(--contact-radius);
+  background: #fff;
+  padding: 20px;
+}
+
+/* 12.03 Titres */
+.contact-title{ margin: 0 0 6px; font-size: 1.5rem; line-height: 1.2; }
+.contact-sub{ margin: 0 0 16px; color: #666; }
+
+/* 12.04 Embed */
+.contact-embed iframe{
+  display: block;
+  width: 100%;
+  min-height: 420px;       /* hauteur de départ (Tally ajuste ensuite) */
+  border: 0;
+}
+
+/* 12.05 Responsive */
+@media (max-width: 420px){
+  .contact{ padding: 0 12px; }
+}
