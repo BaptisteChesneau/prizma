@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}Mon Compte - Prizma{% endblock %}
+
+{% block content %}
+<main class="account-container">
+  <aside class="account-sidebar">
+    <h2 class="account-sidebar-title">Mon compte</h2>
+    <nav class="account-nav">
+      <button class="account-nav-btn active" data-section="infos">Informations personnelles</button>
+      <button class="account-nav-btn" data-section="favoris">Produits favoris</button>
+      <button class="account-nav-btn admin-only" data-section="admin">Tableau de bord Admin</button>
+      <button class="account-logout-btn">Déconnexion</button>
+    </nav>
+  </aside>
+
+  <section class="account-content">
+    <!-- Section : Infos perso -->
+    <div id="section-infos" class="account-section active">
+      <h3 class="account-section-title">Informations personnelles</h3>
+      <form class="account-form">
+        <label>Email :</label>
+        <input type="email" value="exemple@prizma.fr" class="account-input" />
+
+        <label>Mot de passe :</label>
+        <input type="password" value="********" class="account-input" />
+
+        <button type="button" class="account-save-btn">Enregistrer</button>
+        <button type="button" class="account-fidelity-btn" id="fidelity-btn">🎫 Ma carte de fidélité</button>
+      </form>
+
+      <div id="fidelity-card-container" style="margin-top: 1rem;"></div>
+    </div>
+
+    <!-- Section : Favoris -->
+    <div id="section-favoris" class="account-section">
+      <h3 class="account-section-title">Produits favoris</h3>
+      <div class="account-fav-grid">
+        {% for i in range(1, 10) %}
+        <div class="account-fav-card">
+          <img src="{{ url_for('static', filename='img/fav_placeholder.png') }}" alt="Produit {{ i }}" />
+          <p>Produit {{ i }}</p>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="account-pagination">
+        <button class="account-page-btn">« Précédent</button>
+        <button class="account-page-btn">Suivant »</button>
+      </div>
+    </div>
+
+    <!-- Section : Admin -->
+    <div id="section-admin" class="account-section">
+      <h3 class="account-section-title">Tableau de bord Admin</h3>
+      <div class="account-admin-grid">
+        <div class="account-admin-card">👥 Gérer les utilisateurs</div>
+        <div class="account-admin-card">📦 Gérer les produits</div>
+        <div class="account-admin-card">🗂️ Gérer les catégories</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  const isAdmin = true;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Sidebar navigation
+    const buttons = document.querySelectorAll(".account-nav-btn");
+    const sections = document.querySelectorAll(".account-section");
+    const adminItems = document.querySelectorAll(".admin-only");
+
+    adminItems.forEach(item => {
+      if (!isAdmin) item.style.display = "none";
+    });
+
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        const sectionId = "section-" + btn.dataset.section;
+        sections.forEach(sec => {
+          sec.classList.toggle("active", sec.id === sectionId);
+        });
+      });
+    });
+
+    // Fidélité
+    const fidelityBtn = document.getElementById("fidelity-btn");
+    const container = document.getElementById("fidelity-card-container");
+    fidelityBtn.addEventListener("click", () => {
+      const memberId = "FID-TEST001";  
+      const img = document.createElement("img");
+      img.src = `/fidelite/${memberId}?t=${Date.now()}`;
+      img.style.maxWidth = "100%";
+      img.style.border = "1px solid #B45309";
+      img.style.borderRadius = "8px";
+      container.innerHTML = "";
+      container.appendChild(img);
+    });
+  });
+</script>
+{% endblock %}
