@@ -1,64 +1,54 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mentions légales — Prizma</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-  </head>
-  <body>
-    {% include 'header.html' %}
+{% extends "base.html" %}
+{% block title %}Mentions légales - Prizma{% endblock %}
 
-    <main class="legal">
-      <section class="legal-wrap card">
-        <h1 class="legal-title">Mentions légales</h1>
+{% block content %}
+<main class="legal_notices-container">
+  <section class="legal_notices-wrapper">
+    <h1 class="legal_notices-h1">Mentions légales</h1>
 
-        <p class="legal-text">
-          Le présent site <strong>www.prizma.fr</strong> est édité par la société <strong>Prizma</strong>, qui met à disposition un catalogue de produits et un espace client dédié à la carte de fidélité. Aucune vente n’est réalisée en ligne ; les achats s’effectuent uniquement dans nos magasins physiques.
-        </p>
+    <p class="legal_notices-text">
+      Le présent site <strong>www.prizma.fr</strong> est édité par la société <strong>Prizma</strong>, qui met à disposition un catalogue de produits et un espace client dédié à la carte de fidélité. Aucune vente n’est réalisée en ligne ; les achats s’effectuent uniquement dans nos magasins physiques.
+    </p>
 
-        <h2 class="legal-h2">Éditeur du site</h2>
-        <p class="legal-text">
-          <strong>Prizma SARL</strong><br />
-          Siège social : 12 rue des Couleurs, 75000 Paris, France<br />
-          Capital social : 50&nbsp;000&nbsp;€<br />
-          RCS Paris n° 000&nbsp;000&nbsp;000<br />
-          Numéro de TVA intracommunautaire : FR00&nbsp;000000000<br />
-          Email : <a href="mailto:contact@prizma.fr" class="legal-link">contact@prizma.fr</a><br />
-          Téléphone : <a href="tel:0123456789" class="legal-link">01&nbsp;23&nbsp;45&nbsp;67&nbsp;89</a>
-        </p>
+    <h2 class="legal_notices-h2">Éditeur du site</h2>
+    <p class="legal_notices-text">
+      <strong>Prizma SARL</strong><br />
+      Siège social : 12 rue des Couleurs, 75000 Paris, France<br />
+      Capital social : 50 000 €<br />
+      RCS Paris n° 000 000 000<br />
+      Numéro de TVA intracommunautaire : FR00 000000000<br />
+      Email : contact@prizma.fr<br />
+      Téléphone : 01 23 45 67 89
+    </p>
 
-        <h2 class="legal-h2">Hébergeur</h2>
-        <p class="legal-text">
-          <strong>OVH SAS</strong><br />
-          2 rue Kellermann, 59100 Roubaix, France<br />
-          Téléphone : 09&nbsp;72&nbsp;10&nbsp;10&nbsp;07<br />
-          Site : <a href="https://www.ovhcloud.com" class="legal-link" rel="noopener noreferrer" target="_blank">www.ovhcloud.com</a>
-        </p>
+    <h2 class="legal_notices-h2">Hébergeur</h2>
+    <p class="legal_notices-text">
+      <strong>OVH SAS</strong><br />
+      2 rue Kellermann, 59100 Roubaix, France<br />
+      Téléphone : 09 72 10 10 07<br />
+      Site : <a href="https://www.ovhcloud.com" class="legal_notices-link">www.ovhcloud.com</a>
+    </p>
 
-        <h2 class="legal-h2">Propriété intellectuelle</h2>
-        <p class="legal-text">
-          L’ensemble des éléments graphiques, textuels et visuels du site <strong>Prizma</strong> (logos, typographies, images, mise en page, etc.) est la propriété exclusive de Prizma ou fait l’objet d’une autorisation d’utilisation. Toute reproduction, représentation, modification, publication ou adaptation, totale ou partielle, est interdite sans l’accord écrit préalable de Prizma.
-        </p>
+    <h2 class="legal_notices-h2">Propriété intellectuelle</h2>
+    <p class="legal_notices-text">
+      L’ensemble des éléments graphiques, textuels et visuels du site <strong>Prizma</strong> (logos, typographies, images, mise en page, etc.) est la propriété exclusive de Prizma ou fait l’objet d’une autorisation d’utilisation. Toute reproduction, représentation, modification, publication ou adaptation, totale ou partielle, est interdite sans l’accord écrit préalable de Prizma.
+    </p>
 
-        <h2 class="legal-h2">Données personnelles</h2>
-        <p class="legal-text">
-          Les informations collectées via l’espace client sont destinées à la gestion des comptes fidélité et à la communication avec nos clients. Vous pouvez exercer vos droits d’accès, de rectification et de suppression de vos données en écrivant à : <a href="mailto:dpo@prizma.fr" class="legal-link">dpo@prizma.fr</a>.
-        </p>
+    <h2 class="legal_notices-h2">Données personnelles</h2>
+    <p class="legal_notices-text">
+      Les informations collectées via l’espace client sont destinées à la gestion des comptes fidélité et à la communication avec nos clients. Vous pouvez exercer vos droits d’accès, de rectification et de suppression de vos données en écrivant à : <a href="mailto:dpo@prizma.fr" class="legal_notices-link">dpo@prizma.fr</a>.
+    </p>
 
-        <h2 class="legal-h2">Responsabilité</h2>
-        <p class="legal-text">
-          Le site <strong>Prizma</strong> vise à fournir des informations précises et à jour sur les produits proposés en magasin. Toutefois, les visuels, prix et références affichés n’ont qu’une valeur indicative et peuvent être modifiés à tout moment. Prizma ne saurait être tenue responsable des erreurs ou omissions dans les informations publiées.
-        </p>
+    <h2 class="legal_notices-h2">Responsabilité</h2>
+    <p class="legal_notices-text">
+      Le site <strong>Prizma</strong> vise à fournir des informations précises et à jour sur les produits proposés en magasin. Toutefois, les visuels, prix et références affichés n’ont qu’une valeur indicative et peuvent être modifiés à tout moment. Prizma ne saurait être tenue responsable des erreurs ou omissions dans les informations publiées.
+    </p>
 
-        <h2 class="legal-h2">Contact</h2>
-        <p class="legal-text">
-          Pour toute question relative au site ou à vos données personnelles, vous pouvez nous contacter à :<br />
-          <a href="mailto:contact@prizma.fr" class="legal-link">contact@prizma.fr</a>
-        </p>
-      </section>
-    </main>
-
-    {% include 'footer.html' %}
-  </body>
-</html>
+    <h2 class="legal_notices-h2">Contact</h2>
+    <p class="legal_notices-text">
+      Pour toute question relative au site ou à vos données personnelles, vous pouvez nous contacter à :<br />
+      <a href="mailto:contact@prizma.fr" class="legal_notices-link">contact@prizma.fr</a>
+    </p>
+  </section>
+</main>
+{% endblock %}

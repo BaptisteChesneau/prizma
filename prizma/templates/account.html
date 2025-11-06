@@ -1,14 +1,7 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Mon compte — Prizma</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-  </head>
-  <body>
-    {% include 'header.html' %}
+{% extends "base.html" %}
+{% block title %}Mon Compte - Prizma{% endblock %}
 
+{% block content %}
 <main class="account-container">
   <aside class="account-sidebar">
     <h2 class="account-sidebar-title">Mon compte</h2>
@@ -21,7 +14,7 @@
   </aside>
 
   <section class="account-content">
-    <!-- Section: Personal information -->
+    <!-- Section : Infos perso -->
     <div id="section-infos" class="account-section active">
       <h3 class="account-section-title">Informations personnelles</h3>
       <form class="account-form">
@@ -38,7 +31,7 @@
       <div id="fidelity-card-container" style="margin-top: 1rem;"></div>
     </div>
 
-    <!-- Section: Favorites -->
+    <!-- Section : Favoris -->
     <div id="section-favoris" class="account-section">
       <h3 class="account-section-title">Produits favoris</h3>
       <div class="account-fav-grid">
@@ -92,7 +85,7 @@
       });
     });
 
-    // Loyalty
+    // Fidélité
     const fidelityBtn = document.getElementById("fidelity-btn");
     const container = document.getElementById("fidelity-card-container");
     fidelityBtn.addEventListener("click", () => {
@@ -107,8 +100,4 @@
     });
   });
 </script>
-
-        {% include 'footer.html' %}
-        
-  </body>
-</html>
+{% endblock %}

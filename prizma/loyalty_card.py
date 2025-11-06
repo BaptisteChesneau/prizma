@@ -1,3 +1,4 @@
+# loyalty_card.py
 from PIL import Image, ImageDraw
 import barcode
 from barcode.writer import ImageWriter
