@@ -76,7 +76,24 @@ body {
 }
 .brand{ display: inline-flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--hdr-fg); }
 .brand-text{ font-weight: 800; font-size: 1.35rem; letter-spacing: .2px; }
-.logo{ width: 44px; height: 44px; display: inline-grid; place-items: center; border-radius: 10px; overflow: hidden; }
+
+/* le cadre du logo (ne pas supprimer) */
+.logo{
+  width: 44px;
+  height: 44px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* l’image à l’intérieur du cadre (à ajouter juste après) */
+.logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* garde les proportions du logo */
+  display: block;
+}
 
 .site-nav{ display: flex; align-items: center; gap: var(--nav-gap); }
 .nav-link{
