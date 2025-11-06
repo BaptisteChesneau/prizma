@@ -354,8 +354,7 @@ def catalogue(category, subcat):
 def contact():
     return render_template("contact.html")
 
-# Une route unique avec endpoint "rgpd"
-@app.get("/rgpd", endpoint="rgpd")
+@app.route("/rgpd/")
 def gdpr():
     return render_template("gdpr.html")
 
