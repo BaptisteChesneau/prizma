@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ sub_label }} — {{ cat_label }} · Prizma</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <main class="catalogue">
+      <header class="cat-header">
+        <nav class="cat-breadcrumb" aria-label="Fil d’Ariane">
+          <a href="{{ url_for('produits') }}" class="cat-crumb">Produits</a>
+          <span class="cat-sep">›</span>
+          <span class="cat-crumb">{{ cat_label }}</span>
+          <span class="cat-sep">›</span>
+          <strong class="cat-crumb is-current">{{ sub_label }}</strong>
+        </nav>
+        <h1 class="cat-title">{{ sub_label }}</h1>
+        <p class="cat-sub">{{ items|length }} produit(s) trouvés</p>
+      </header>
+
+      {# Image par défaut si la réf n’est pas mappée #}
+      {% set placeholder = url_for('static', filename='img/placeholder.webp') %}
+
+      {# MAPPING IMAGES PAR RÉFÉRENCE (à compléter selon tes fichiers) #}
+      {% set IMG = {
+        'HT-LAP-001': url_for('static', filename='img/catalogue/hightech/ultrabook.jpg'),
+        'HT-LAP-002': url_for('static', filename='img/catalogue/hightech/laptop-pro.jpg'),
+        'HT-SCR-001': url_for('static', filename='img/catalogue/hightech/screen-27.jpg'),
+        'MS-DEC-001': url_for('static', filename='img/catalogue/maison/fauteuil.jpg')
+      } %}
+
+      {% if items %}
+        <section class="cat-grid" aria-label="Liste des produits">
+          {% for p in items %}
+            <article class="cat-card card">
+              <img
+                class="cat-thumb"
+                src="{{ IMG.get(p.ref, placeholder) }}"
+                alt="{{ p.name }}"
+                title="{{ p.name }}"
+                loading="lazy"
+                decoding="async"
+              >
+              <div class="cat-body">
+                <h3 class="cat-name">{{ p.name }}</h3>
+                <p class="cat-ref">Réf. <code>{{ p.ref }}</code></p>
+                <p class="cat-price">{{ "%.2f"|format(p.price) }} €</p>
+                <div class="cat-actions">
+                  <button class="btn btn-orange" type="button" disabled>Voir le détail</button>
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        </section>
+      {% else %}
+        <p class="cat-empty">Cette sous-catégorie n’a pas encore de produits. Reviens vite !</p>
+      {% endif %}
+    </main>
+
+    {% include 'footer.html' %}
+  </body>
+</html>

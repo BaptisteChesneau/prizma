@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Créer un compte — Prizma</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <main class="auth">
+      <section class="auth-wrap card">
+        <h1 class="auth-title">Créer un compte</h1>
+        <p class="auth-sub">Renseigne tes informations pour créer ton espace client.</p>
+
+        {% if errors and errors|length %}
+          <div class="alert alert-error" role="alert" aria-live="polite">
+            <strong>Veuillez corriger les erreurs suivantes :</strong>
+            <ul>
+              {% for e in errors %}<li>{{ e }}</li>{% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        {% if success %}
+          <div class="alert alert-success" role="status" aria-live="polite">
+            ✅ Compte créé avec succès ! (stocké temporairement pendant que le serveur tourne)
+          </div>
+
+          {% if created %}
+            <ul class="auth-recap">
+              <li><strong>Nom :</strong> {{ created.prenom }} {{ created.nom }}</li>
+              <li><strong>Email :</strong> {{ created.email }}</li>
+              <li><strong>Adresse :</strong> {{ created.adresse }}, {{ created.code_postal }} {{ created.ville }}</li>
+              <li><strong>Téléphone :</strong> {{ created.telephone }}</li>
+            </ul>
+          {% endif %}
+        {% endif %}
+
+        <!-- Action updated to the new route /sign-up/create -->
+        <form class="auth-form" method="post" action="{{ url_for('signup_create') }}" novalidate>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="prenom">Prénom</label>
+              <input id="prenom" name="prenom" type="text" required value="{{ form.get('prenom','') }}">
+            </div>
+
+            <div class="form-field">
+              <label for="nom">Nom</label>
+              <input id="nom" name="nom" type="text" required value="{{ form.get('nom','') }}">
+            </div>
+
+            <div class="form-field full">
+              <label for="email">Adresse e-mail</label>
+              <input id="email" name="email" type="email" required placeholder="nom@exemple.com" value="{{ form.get('email','') }}">
+            </div>
+
+            <div class="form-field full">
+              <label for="adresse">Adresse</label>
+              <input id="adresse" name="adresse" type="text" required placeholder="N° et rue" value="{{ form.get('adresse','') }}">
+            </div>
+
+            <div class="form-field">
+              <label for="code_postal">Code postal</label>
+              <input id="code_postal" name="code_postal" type="text" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" required value="{{ form.get('code_postal','') }}">
+            </div>
+
+            <div class="form-field">
+              <label for="ville">Ville</label>
+              <input id="ville" name="ville" type="text" required value="{{ form.get('ville','') }}">
+            </div>
+
+            <div class="form-field full">
+              <label for="telephone">Téléphone</label>
+              <input id="telephone" name="telephone" type="tel" required placeholder="06 12 34 56 78" value="{{ form.get('telephone','') }}">
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-orange">Créer mon compte</button>
+          </div>
+        </form>
+
+        <p class="auth-note">
+          Déjà un compte ?
+          <a href="{{ url_for('login') }}">Se connecter</a>
+        </p>
+      </section>
+    </main>
+
+    {% include 'footer.html' %}
+  </body>
+</html>
