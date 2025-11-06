@@ -354,12 +354,9 @@ def catalogue(category, subcat):
 def contact():
     return render_template("contact.html")
 
-@app.get("/rgpd", endpoint="rgpd")
-def rgpd_page():
-    # Si tu as un template rgpd.html :
-    # return render_template("rgpd.html")
-    # Sinon, placeholder temporaire :
-    return "RGPD — placeholder"
+@app.route("/rgpd/")
+def gdpr():
+    return render_template("gdpr.html")
 
 @app.get("/mentions-legales", endpoint="mentions_legales")
 def mentions_legales():

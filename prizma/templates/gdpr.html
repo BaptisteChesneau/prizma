@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RGPD - Protection des données - Prizma</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+
+    {% include "header.html" %}
+
+  <main class="gdpr-container">
+    <section class="gdpr-wrapper">
+      <h1 class="gdpr-h1">RGPD - Protection des données personnelles</h1>
+
+      <p class="gdpr-text">
+        Chez <strong>Prizma</strong>, la protection de vos données personnelles est une priorité. 
+        Cette page vous informe sur la manière dont nous collectons, utilisons et protégeons vos informations 
+        conformément au Règlement Général sur la Protection des Données (RGPD).
+      </p>
+
+      <h2 class="gdpr-h2">1. Responsable du traitement</h2>
+      <p class="gdpr-text">
+        Le responsable du traitement est :
+        <strong>Prizma</strong><br>
+        Email : <a href="mailto:contact@prizma.fr" class="gdpr-link">contact@prizma.fr</a>
+      </p>
+
+      <h2 class="gdpr-h2">2. Données collectées</h2>
+      <p class="gdpr-text">
+        Nous collectons uniquement les données strictement nécessaires à la gestion de votre compte, 
+        au traitement de vos commandes et à l'amélioration de nos services : nom, adresse e-mail, 
+        adresse postale et historique d'achats.
+      </p>
+
+      <h2 class="gdpr-h2">3. Finalités du traitement</h2>
+      <p class="gdpr-text">Vos données sont utilisées pour :</p>
+      <ul class="gdpr-list">
+        <li>Gérer votre compte et vos commandes,</li>
+        <li>Envoyer des communications liées à vos achats,</li>
+        <li>Améliorer votre expérience sur le site,</li>
+        <li>Respecter nos obligations légales.</li>
+      </ul>
+
+      <h2 class="gdpr-h2">4. Durée de conservation</h2>
+      <p class="gdpr-text">
+        Vos données sont conservées uniquement le temps nécessaire aux finalités prévues, 
+        sauf obligations légales contraires.
+      </p>
+
+      <h2 class="gdpr-h2">5. Vos droits</h2>
+      <p class="gdpr-text">
+        Conformément au RGPD, vous disposez des droits suivants :
+      </p>
+      <ul class="gdpr-list">
+        <li>Droit d'accès à vos données,</li>
+        <li>Droit de rectification,</li>
+        <li>Droit à l'effacement ("droit à l'oubli"),</li>
+        <li>Droit à la portabilité,</li>
+        <li>Droit d'opposition au traitement.</li>
+      </ul>
+
+      <p class="gdpr-text">
+        Pour exercer ces droits, contactez-nous à : 
+        <a href="mailto:contact@prizma.fr" class="gdpr-link">contact@prizma.fr</a>
+      </p>
+
+      <h2 class="gdpr-h2">6. Sécurité</h2>
+      <p class="gdpr-text">
+        Nous appliquons des mesures techniques et organisationnelles strictes 
+        pour assurer la sécurité et la confidentialité de vos données.
+      </p>
+
+      <h2 class="gdpr-h2">7. Modification de la politique</h2>
+      <p class="gdpr-text">
+        <strong>Prizma</strong> se réserve le droit de modifier cette politique à tout moment 
+        pour s'adapter aux évolutions légales ou techniques. 
+        Nous vous invitons à la consulter régulièrement.
+      </p>
+    </section>
+  </main>
+
+  {% include "footer.html" %}
+
+</body>
+</html>

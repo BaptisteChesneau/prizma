@@ -641,7 +641,7 @@ body {
 @media (max-width: 900px){ .cat-grid{ grid-template-columns:1fr; } }
 
 /* =======================================================
-   11. Pages légales (Mentions légales / Cookies)
+   11. Pages légales (Mentions légales / Cookies / Rgpd) 
 ======================================================= */
 /* Mentions légales */
 .legal_notices-container{ background:#fff; padding:3rem 2rem; }
@@ -662,3 +662,15 @@ body {
 .cookies_policy-link:hover{ text-decoration:underline; }
 .cookies_policy-list{ margin:1rem 0 1.5rem 1.25rem; line-height:1.6; }
 .cookies_policy-list li{ margin-bottom:.5rem; }
+
+/* Rgpd*/ 
+  .gdpr-container { background-color: white; padding: 3rem 2rem; }
+  .gdpr-wrapper { max-width: 800px; margin: 0 auto; }
+  .gdpr-h1 { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 2.5rem; color: black; margin-bottom: 2rem; }
+  .gdpr-h2 { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 2rem; color: black; margin-top: 2.5rem; margin-bottom: 1rem; }
+  .gdpr-text { font-family: 'Roboto', sans-serif; font-size: 1rem; line-height: 1.6; margin-bottom: 1.5rem; text-align: justify; }
+  .gdpr-link { color: #1D4ED8; text-decoration: none; }
+  .gdpr-link:hover {text-decoration: underline; }
+  .gdpr-list { margin: 1rem 0 1.5rem 1.5rem; font-size: 1rem; line-height: 1.6; }
+  .gdpr-list li { margin-bottom: 0.5rem; }
+  
