@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,7 +10,7 @@
     {% include 'header.html' %}
 
     <main class="products">
-      <!-- Barre de titre + recherche -->
+      <!-- Title bar + search -->
       <header class="prod-header">
         <h1 class="prod-title">Catalogue produits</h1>
         <form class="prod-search" role="search" aria-label="Rechercher une rubrique">
@@ -19,7 +19,7 @@
       </header>
 
       <div class="prod-layout">
-        <!-- NAV latérale -->
+        <!-- Side navigation -->
         <aside class="prod-aside" aria-label="Rubriques principales">
           <nav class="prod-nav">
             <a href="#maison" class="prod-nav-link">Maison &amp; Jardin</a>
@@ -39,9 +39,9 @@
           </nav>
         </aside>
 
-        <!-- CONTENU -->
+        <!-- CONTENT -->
         <div class="prod-content">
-          <!-- Maison & Jardin -->
+          <!-- Home & Garden -->
           <section id="maison" class="prod-section card" aria-labelledby="h-maison">
             <h2 id="h-maison" class="prod-h2">Maison &amp; Jardin</h2>
             <div class="subcats">
@@ -55,7 +55,7 @@
             </div>
           </section>
 
-          <!-- Informatique & High-Tech -->
+          <!-- IT & High Tech -->
           <section id="hightech" class="prod-section card" aria-labelledby="h-hightech">
             <h2 id="h-hightech" class="prod-h2">Informatique &amp; High-Tech</h2>
             <div class="subcats">
@@ -69,7 +69,7 @@
             </div>
           </section>
 
-          <!-- Téléphonie -->
+          <!-- Telephony -->
           <section id="tel" class="prod-section card" aria-labelledby="h-tel">
             <h2 id="h-tel" class="prod-h2">Téléphonie &amp; Objets connectés</h2>
             <div class="subcats">
@@ -81,7 +81,7 @@
             </div>
           </section>
 
-          <!-- Image & Son -->
+          <!-- Image & Sound -->
           <section id="av" class="prod-section card" aria-labelledby="h-av">
             <h2 id="h-av" class="prod-h2">Image &amp; Son</h2>
             <div class="subcats">
@@ -93,7 +93,7 @@
             </div>
           </section>
 
-          <!-- Jeux vidéo -->
+          <!-- Video games -->
           <section id="jeux" class="prod-section card" aria-labelledby="h-jeux">
             <h2 id="h-jeux" class="prod-h2">Jeux vidéo &amp; Consoles</h2>
             <div class="subcats">
@@ -116,7 +116,7 @@
             </div>
           </section>
 
-          <!-- Mode & Beauté -->
+          <!-- Fashion & Beauty -->
           <section id="mode" class="prod-section card" aria-labelledby="h-mode">
             <h2 id="h-mode" class="prod-h2">Mode &amp; Beauté</h2>
             <div class="subcats">
@@ -129,7 +129,7 @@
             </div>
           </section>
 
-          <!-- Bébé -->
+          <!-- Baby -->
           <section id="bebe" class="prod-section card" aria-labelledby="h-bebe">
             <h2 id="h-bebe" class="prod-h2">Bébé &amp; Puériculture</h2>
             <div class="subcats">
@@ -141,7 +141,7 @@
             </div>
           </section>
 
-          <!-- Jouets -->
+          <!-- Toys -->
           <section id="jouets" class="prod-section card" aria-labelledby="h-jouets">
             <h2 id="h-jouets" class="prod-h2">Jouets &amp; Enfants</h2>
             <div class="subcats">
@@ -153,7 +153,7 @@
             </div>
           </section>
 
-          <!-- Sport -->
+          <!-- Sports -->
           <section id="sport" class="prod-section card" aria-labelledby="h-sport">
             <h2 id="h-sport" class="prod-h2">Sport &amp; Loisirs</h2>
             <div class="subcats">
@@ -165,7 +165,7 @@
             </div>
           </section>
 
-          <!-- Voyage -->
+          <!-- Travel -->
           <section id="voyage" class="prod-section card" aria-labelledby="h-voyage">
             <h2 id="h-voyage" class="prod-h2">Voyage &amp; Bagagerie</h2>
             <div class="subcats">
@@ -175,7 +175,7 @@
             </div>
           </section>
 
-          <!-- Animaux -->
+          <!-- Animals -->
           <section id="animaux" class="prod-section card" aria-labelledby="h-animaux">
             <h2 id="h-animaux" class="prod-h2">Animaux</h2>
             <div class="subcats">
@@ -186,7 +186,7 @@
             </div>
           </section>
 
-          <!-- Bureau -->
+          <!-- Office -->
           <section id="bureau" class="prod-section card" aria-labelledby="h-bureau">
             <h2 id="h-bureau" class="prod-h2">Bureau &amp; Fournitures</h2>
             <div class="subcats">
@@ -196,7 +196,7 @@
             </div>
           </section>
 
-          <!-- Supermarché -->
+          <!-- Supermarket -->
           <section id="supermarche" class="prod-section card" aria-labelledby="h-supermarche">
             <h2 id="h-supermarche" class="prod-h2">Supermarché &amp; Alimentation</h2>
             <div class="subcats">
@@ -207,7 +207,7 @@
             </div>
           </section>
 
-          <!-- Guides de classement (exemples multi-catégories) -->
+          <!-- Classification guides (multi-category examples) -->
           <section class="prod-section card" aria-labelledby="h-guides">
             <h2 id="h-guides" class="prod-h2">Guides de classement (exemples)</h2>
 
@@ -302,13 +302,13 @@
 
     {% include 'footer.html' %}
 
-    <!-- JS intégré : animations + nav active + ancrage lissé + accordéon -->
+    <!-- Embedded JS: animations + active navigation + smooth anchoring + accordion -->
     <script>
       (function () {
         'use strict';
         const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        // 1) Révélation au scroll (sections + guides)
+        // 1) Scroll reveal (sections + guides)
         if (!prefersReduced) {
           const revealEls = document.querySelectorAll('.prod-section, .guide');
           revealEls.forEach(el => el.classList.add('reveal'));
@@ -323,7 +323,7 @@
           revealEls.forEach(el => io.observe(el));
         }
 
-        // 2) Surbrillance du lien actif dans la nav (section visible)
+        // 2) Highlighting the active link in the navigation (visible section)
         const sections = document.querySelectorAll('.prod-section[id]');
         const navLinks = document.querySelectorAll('.prod-nav-link');
 
@@ -342,7 +342,7 @@
         }, { threshold: 0.4 });
         sections.forEach(s => highlightIO.observe(s));
 
-        // 3) Ancrage lissé avec compensation du header sticky
+        // 3) Smooth anchoring with sticky header compensation
         const header = document.querySelector('.site-header');
         const getOffset = () => (header ? header.getBoundingClientRect().height : 64) + 8;
 
@@ -363,7 +363,7 @@
           });
         });
 
-        // 4) Hash arrivé direct
+        // 4) Direct hash arrival
         window.addEventListener('load', () => {
           if (location.hash) {
             const id = location.hash.slice(1);
@@ -375,7 +375,7 @@
           }
         });
 
-        // 5) Accordéon : un seul guide ouvert
+        // 5) Accordion: a single open guide
         const guides = document.querySelectorAll('details.guide');
         guides.forEach((g) => {
           g.addEventListener('toggle', () => {
@@ -385,7 +385,7 @@
           });
         });
 
-        // (Plus de redirection JS des pills : elles ont des href réels)
+        // (No more JS redirection for pills: they have real hrefs)
       })();
     </script>
   </body>
